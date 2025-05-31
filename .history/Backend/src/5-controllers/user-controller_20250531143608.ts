@@ -35,7 +35,7 @@ class UserController {
 
     private async login(request: Request, response: Response, next: NextFunction) {
         try {
-            const credentials = new CredentialsModel(request.body);
+            const credentials = new CredentialsModel(request.);
             const token = await userService.login(credentials);
             response.json(token);
         }

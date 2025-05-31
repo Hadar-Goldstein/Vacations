@@ -5,7 +5,6 @@ import { UploadedFile } from "express-fileupload";
 
 import { VacationModel } from "../3-models/vacation-model";
 import { dataService } from "../4-services/data-service";
-import { securityMiddleware } from "../6-middleware/security-middleware";
 
 class DataController {
 
