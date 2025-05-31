@@ -1,5 +1,5 @@
 import { CategoryModel, ICategoryModel } from "../3-models/category-model";
-import { IProductModel, ProductModel } from "../3-models/vacation-model";
+import { IProductModel, ProductModel } from "../3-models/product-model";
 
 class DataService {
 
