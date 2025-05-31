@@ -40,10 +40,19 @@ class DataService {
     }
 
     public async deleteVacation(_id: string): Promise<void> {
-        await axios.delete(appConfig.vacationsUrl + _id);
-        const action = vacationSlice.actions.deleteVacation(_id);
+        await axios.delete(appConfig.vacationsUrl + id);
+        const action = vacationSlice.actions.deleteVacation(id);
         store.dispatch(action);
     }
+
+
+
+    public async top3Products(): Promise<ProductModel[]> {
+        const response = await axios.get<ProductModel[]>(appConfig.top3ProductsUrl);
+        const products = response.data;
+        return products;
+    }
+
 }
 
 export const dataService = new DataService();

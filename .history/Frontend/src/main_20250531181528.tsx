@@ -5,9 +5,8 @@ import './index.css'
 import "./Assets/Fonts/fonts.css"
 import { Provider } from 'react-redux'
 import { store } from './Redux/Store.ts'
-import { interceptor } from './Utils/Interceptor.ts'
 
-interceptor.create();
+inter
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

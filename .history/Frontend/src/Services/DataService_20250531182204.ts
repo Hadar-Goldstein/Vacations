@@ -1,0 +1,59 @@
+import axios from "axios";
+import { appConfig } from "../Utils/AppConfig";
+import { store } from "../Redux/Store";
+import { VacationModel } from "../Models/VacationModel";
+import { vacationSlice } from "../Redux/VacationSlice";
+
+class DataService {
+	public async getAllVacations(): Promise<VacationModel[]> {
+        // Check global state
+        if(store.getState().vacations.length > 0) return store.getState().vacations;
+
+        // Get from Backend 
+        const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
+        const vacations = response.data;
+
+        // Save in global state
+        const action = vacationSlice.actions.initVacations(vacations); 
+        store.dispatch(action);
+
+        return vacations;
+    }
+
+    public async addVacation(vacation: VacationModel) :Promise<void>{
+
+        // get --> get data from server
+        // post --> add new data to server 
+        // put --> update full existing data in server
+        // patch --> update partial existing data in server
+        // delete --> delete existing data from server
+
+        const headers = {"Content-Type": "multipart/form-data"};
+        const response = await axios.post<VacationModel>(appConfig.vacationsUrl, vacation, { headers });
+        const dbVacation = response.data;
+
+        // Save in global state
+        const action = vacationSlice.actions.AddVacation(dbVacation);
+        store.dispatch(action);
+    }
+
+    public async deleteProduct(id: number) :Promise<void> {
+
+        // Delete product from backend
+        await axios.delete(appConfig.productsUrl + id);
+
+        const action = productSlice.actions.deleteProduct(id);
+        store.dispatch(action);
+    }
+
+
+
+    public async top3Products() : Promise<ProductModel[]> {
+        const response = await axios.get<ProductModel[]>(appConfig.top3ProductsUrl);
+        const products = response.data;
+        return products;
+    }
+
+}
+
+export const dataService = new DataService();

@@ -31,7 +31,7 @@ class DataService {
         store.dispatch(action);
     }
 
-    public async updateVacation(vacation: VacationModel): Promise<void> {
+    public async updatet(vacation: VacationModel): Promise<void> {
         const headers = { "Content-Type": "multipart/form-data" };
         const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation._id, vacation, { headers });
         const dbVacation = response.data;
@@ -39,11 +39,23 @@ class DataService {
         store.dispatch(action);
     }
 
-    public async deleteVacation(_id: string): Promise<void> {
-        await axios.delete(appConfig.vacationsUrl + _id);
-        const action = vacationSlice.actions.deleteVacation(_id);
+    public async deleteVacation(id: number): Promise<void> {
+
+        // Delete product from backend
+        await axios.delete(appConfig.productsUrl + id);
+
+        const action = productSlice.actions.deleteProduct(id);
         store.dispatch(action);
     }
+
+
+
+    public async top3Products(): Promise<ProductModel[]> {
+        const response = await axios.get<ProductModel[]>(appConfig.top3ProductsUrl);
+        const products = response.data;
+        return products;
+    }
+
 }
 
 export const dataService = new DataService();
