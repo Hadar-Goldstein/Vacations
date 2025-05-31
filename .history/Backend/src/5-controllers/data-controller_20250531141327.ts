@@ -4,7 +4,6 @@ import { fileSaver } from "uploaded-file-saver";
 import { UploadedFile } from "express-fileupload";
 import { securityMiddleware } from "../6-middleware/security-middleware";
 import { VacationModel } from "../3-models/vacation-model";
-import { dataService } from "../4-services/data-service";
 
 class DataController {
 
@@ -20,7 +19,7 @@ class DataController {
 
     private async getAllVacations(request: Request, response: Response, next: NextFunction) {
         try {
-            const vacations = await dataService.getAllVacation();
+            const vacations = await dataService.getAllVacations();
             response.json(vacations);
         }
         catch (err: any) { next(err); }

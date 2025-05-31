@@ -20,7 +20,7 @@ class DataController {
 
     private async getAllVacations(request: Request, response: Response, next: NextFunction) {
         try {
-            const vacations = await dataService.getAllVacation();
+            const vacations = await dataService.get();
             response.json(vacations);
         }
         catch (err: any) { next(err); }

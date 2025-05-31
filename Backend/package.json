@@ -11,6 +11,7 @@
     "devDependencies": {
         "@types/cors": "^2.8.17",
         "@types/express": "^4.17.21",
+        "@types/express-fileupload": "^1.5.1",
         "@types/node": "^22.5.5",
         "nodemon": "^3.1.9",
         "ts-node": "^10.9.2"
@@ -19,6 +20,9 @@
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.21.0",
-        "mongoose": "^8.14.1"
+        "express-fileupload": "^1.5.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.14.1",
+        "uploaded-file-saver": "^1.0.1"
     }
 }
