@@ -1,5 +1,4 @@
 import { Document, Schema, model } from "mongoose";
-import { calculate } from "../2-utils/calculate";
 
 // 1. Interface representing our model: 
 export interface IVacationModel extends Document {
@@ -72,7 +71,7 @@ export const VacationSchema = new Schema<IVacationModel>({
 
 VacationSchema.pre("save", function (this: IVacationModel, next) {
     if (this.isModified("destination")) {
-        this.destination = calculate.toTitleCase(this.destination);
+        this.destination = toTitleCase(this.destination);
     }
     next();
 });

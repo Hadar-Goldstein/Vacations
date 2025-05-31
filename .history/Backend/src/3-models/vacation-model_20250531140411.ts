@@ -72,7 +72,7 @@ export const VacationSchema = new Schema<IVacationModel>({
 
 VacationSchema.pre("save", function (this: IVacationModel, next) {
     if (this.isModified("destination")) {
-        this.destination = calculate.toTitleCase(this.destination);
+        this.destination = calculate.(this.destination);
     }
     next();
 });
