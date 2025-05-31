@@ -1,0 +1,28 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.coco {
+  display: flex;
+  gap: 25px;
+  font-family: 'CocoGothic';
+  color: #ffffff;
+}
+
+.catchy {
+    color: #ffffff;
+    font-family: 'Catchy-mager';
+    font-size: 60px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: none;              /* בלי מסגרת */
+  border-radius: 20px; 
+}

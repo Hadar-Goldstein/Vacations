@@ -1,0 +1,43 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  gap: 20px;
+  background-color: #1a1a1a; /* רקע כהה לדוגמה */
+  padding: 20px;
+}
+
+.coco {
+  font-family: 'CocoGothic', sans-serif;
+  color: #ffffff;
+  display: flex;
+  gap: 25px;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+}
+
+.catchy {
+  font-family: 'CocoGothic', sans-serif;
+  color: #f0c040;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+button {
+  padding: 12px 30px;
+  background-color: #f0c040;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d4a62a;
+}
