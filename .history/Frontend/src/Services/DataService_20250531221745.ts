@@ -6,8 +6,10 @@ import { vacationSlice } from "../Redux/VacationSlice";
 
 class DataService {
     public async getAllVacations(): Promise<VacationModel[]> {
-        
+
         if (store.getState().vacations.length > 0) return store.getState().vacations;
+
+        // Get from Backend 
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
 

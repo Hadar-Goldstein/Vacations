@@ -4,10 +4,12 @@ import { store } from "../Redux/Store";
 import { VacationModel } from "../Models/VacationModel";
 import { vacationSlice } from "../Redux/VacationSlice";
 
-class DataService {
+class LikesService {
     public async getAllVacations(): Promise<VacationModel[]> {
-        
+        // Check global state
         if (store.getState().vacations.length > 0) return store.getState().vacations;
+
+        // Get from Backend 
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
 
@@ -44,4 +46,4 @@ class DataService {
     }
 }
 
-export const dataService = new DataService();
+export const LikesService = new DataService();
