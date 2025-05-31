@@ -24,7 +24,7 @@ export const VacationSchema = new Schema<IVacationModel>({
         type: String,
         required: [true, "Missing description."],
         minlength: [50, "Description too short."],
-        maxlength: [450, "Description too long"],
+        maxlength: [500, "Description too long"],
         trim: true
     },
     startDate: {

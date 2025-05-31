@@ -8,7 +8,6 @@ import { dal } from "./2-utils/dal";
 import { dataController } from "./5-controllers/data-controller";
 import { userController } from "./5-controllers/user-controller";
 import { errorMiddleware } from "./6-middleware/error-middleware";
-import { likesController } from "./5-controllers/likes-controller";
 
 
 class App {
