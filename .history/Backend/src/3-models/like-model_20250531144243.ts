@@ -12,11 +12,10 @@ export interface ILikeModel extends Document {
 export const LikeSchema = new Schema<ILikeModel>({
     userId: {
         type: mongoose.Schema.ObjectId,
-        required: true
+        re
     },
     vacationId: {
-        type: mongoose.Schema.ObjectId,
-        required: true
+        type: mongoose.Schema.ObjectId
     },
 }, {
     versionKey: false,
@@ -38,7 +37,6 @@ LikeSchema.virtual("user", {
     justOne: true
 })
 
-LikeSchema.index({ userId: 1, vacationId: 1 }, { unique: true });
 
 // 3. The actual model:
 export const LikeModel = model<ILikeModel>("LikeModel", LikeSchema, "likes");

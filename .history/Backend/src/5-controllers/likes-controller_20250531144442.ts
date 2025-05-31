@@ -1,7 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import { StatusCode } from "../3-models/enums";
 import { likesService } from "../4-services/likes-service";
-import { LikeModel } from "../3-models/like-model";
 
 class LikesController {
 

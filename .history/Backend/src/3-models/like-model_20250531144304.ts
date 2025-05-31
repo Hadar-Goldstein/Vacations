@@ -40,5 +40,7 @@ LikeSchema.virtual("user", {
 
 LikeSchema.index({ userId: 1, vacationId: 1 }, { unique: true });
 
+
+
 // 3. The actual model:
 export const LikeModel = model<ILikeModel>("LikeModel", LikeSchema, "likes");

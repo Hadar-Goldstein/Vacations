@@ -16,7 +16,7 @@ export const LikeSchema = new Schema<ILikeModel>({
     },
     vacationId: {
         type: mongoose.Schema.ObjectId,
-        required: true
+              required: true
     },
 }, {
     versionKey: false,
@@ -38,7 +38,6 @@ LikeSchema.virtual("user", {
     justOne: true
 })
 
-LikeSchema.index({ userId: 1, vacationId: 1 }, { unique: true });
 
 // 3. The actual model:
 export const LikeModel = model<ILikeModel>("LikeModel", LikeSchema, "likes");
