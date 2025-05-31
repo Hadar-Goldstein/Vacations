@@ -1,0 +1,72 @@
+.scrollable-container {
+    max-height: 400px;
+    text-align: left;
+}
+
+.New form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+  
+  .New label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    text-align: left;
+  }
+  
+  .New input,
+  .New textarea,
+  .New select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    text-align: left;
+  }
+  
+  .New select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23999' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+  
+  .New input:focus,
+  .New textarea:focus,
+  .New select:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+  
+  .New button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: center;
+  }
+  
+  .New button:hover {
+    background-color: #303f9f;
+  }
+  
