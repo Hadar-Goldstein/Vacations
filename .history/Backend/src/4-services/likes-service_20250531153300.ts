@@ -24,7 +24,7 @@ class LikesService {
     }
 
     public async getLikesByUserId(_id: string): Promise<ILikeModel[]> {
-        const likes = await LikeModel.find({ userId: _id }).populate("vacation").populate("user").exec();
+        const likes = await LikeModel.find({ userId: _id }).populate("vacation")populate("vacation").exec();
         if (!likes) throw new ClientError(StatusCode.NotFound, `User ${_id} does not exist.`);
         return likes;
     }

@@ -16,7 +16,7 @@ class UserService {
         const error = user.validateSync();
         if (error) throw new ClientError(StatusCode.BadRequest, error.message);
 
-        const existingUser = await UserModel.findOne({ email: user.email });
+                const existingUser = await UserModel.findOne({ email: user.email });
         if (existingUser) {
             throw new ClientError(StatusCode.BadRequest, `Email "${user.email}" is already registered.`);
         }
