@@ -1,17 +1,14 @@
 .Home {
     position: "relative";
     overflow: "hidden";
-    height: "100vh";
-    padding: 80px;
+     height: "100vh"
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px; */
 }
-
-.startPage {
-    position: "absolute";
-    width: "100%";
-    padding: "100px 20px";
-    text-align: "center";
-}
-
 
 .coco {
     font-family: 'CocoGothic';
@@ -40,5 +37,5 @@ button {
 }
 
 button:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
