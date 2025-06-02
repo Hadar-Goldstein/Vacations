@@ -3,6 +3,7 @@ import "./List.css";
 export function List() {
     return (
         <div className="List">
+            test
             {/* <div className="form">
                 <label>Select Products Category: </label>
                 <select defaultValue="" required onChange={displayProducts}>

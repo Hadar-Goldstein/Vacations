@@ -9,7 +9,7 @@ export function Menu() {
             
             <div className="MenuLinks">
             <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
-            <NavLink to="/list" className={"MenuLink"}>List</NavLink>               
+            <NavLink to="/vacations" className={"MenuLink"}>List</NavLink>               
             <NavLink to="/new" className={"MenuLink"}>New</NavLink>
             </div>
 

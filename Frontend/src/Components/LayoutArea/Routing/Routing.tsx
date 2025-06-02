@@ -14,7 +14,7 @@ export function Routing() {
 
                 <Route path="/home" element={<Home />} />
 
-                <Route path="/list" element={<List />} />
+                <Route path="/vacations" element={<List />} />
                 
                 <Route path="/new" element={<New />} />
 

@@ -1,10 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
 
     const [showMain, setShowMain] = useState(false);
+    const navigate = useNavigate();
+
+    function startButton() {
+        navigate("/vacations");
+    }
 
     return (
         <div className="Home">
@@ -29,11 +35,11 @@ export function Home() {
                         <p className="endPage-catchy">Dream Vacation</p>
                         <p className="endPage-coco2">I N   O N E   C L I C K</p>
                         <div className="CardsContainer">
-                        <div className="HomeCard"></div>
-                        <div className="HomeCard"></div>
-                        <div className="HomeCard"></div>
+                            <div className="HomeCard"></div>
+                            <div className="HomeCard"></div>
+                            <div className="HomeCard"></div>
                         </div>
-                        <button className="endPage-button" >G E T   S T A R T E D</button>
+                        <button className="endPage-button" onClick={startButton} >G E T   S T A R T E D</button>
                     </motion.div>)}
 
             </AnimatePresence>
