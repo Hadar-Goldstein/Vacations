@@ -1,15 +1,13 @@
 .Home {
-    position: "relative";
-    overflow: "hidden";
-    height: "100vh";
+    position: relative;
     width: 100%;
+    min-height: 100vh;
 }
 
 .startPage {
-    position: "absolute";
-    width: "100%";
-    padding: "100px 20px";
-    text-align: "center";
+    position: absolute;
+    width: 100%;
+    text-align: center;
     margin-top: 100px;
 }
 
@@ -44,8 +42,8 @@ button:hover {
 }
 
 .endPage {
-    position: "absolute";
-    width: "100%";
+    position: absolute;
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -70,4 +68,46 @@ button:hover {
     color: #ffffff;
     font-size: 18px;
     white-space: pre;
+    margin-bottom: 0;
+}
+
+.endPage-coco {
+    font-family: 'CocoGothic';
+    color: #ffffff;
+    white-space: pre;
+    height: 20px;
+    margin-top: 70px;
+    margin-bottom: 0;
+}
+
+.endPage-catchy {
+    color: #ffffff;
+    font-family: 'Catchy-mager';
+    font-size: 60px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.endPage-coco2 {
+    font-family: 'CocoGothic';
+    color: #ffffff;
+    white-space: pre;
+    height: 20px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.endPage-button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: none;
+    font-size: 12px;
+    font-family: 'CocoGothic';
+    width: 180px;
+    white-space: pre;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    margin-top: 30px;
 }

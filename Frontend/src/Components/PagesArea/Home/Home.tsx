@@ -26,14 +26,14 @@ export function Home() {
                         transition={{ duration: 0.6 }}
                         className="endPage">
                         <p className="endPage-coco">C H O O S E    Y O U R</p>
-                        <p className="catchy">Dream Vacation</p>
-                        <p className="endPage-coco">I N   O N E   C L I C K</p>
+                        <p className="endPage-catchy">Dream Vacation</p>
+                        <p className="endPage-coco2">I N   O N E   C L I C K</p>
                         <div className="CardsContainer">
                         <div className="HomeCard"></div>
                         <div className="HomeCard"></div>
                         <div className="HomeCard"></div>
                         </div>
-                        <button >G E T   S T A R T E D</button>
+                        <button className="endPage-button" >G E T   S T A R T E D</button>
                     </motion.div>)}
 
             </AnimatePresence>
