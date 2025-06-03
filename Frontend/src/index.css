@@ -3,8 +3,5 @@ html, body, #root {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-image: url("../src/Assets/Images/Background-Website.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #efebe5;
 }

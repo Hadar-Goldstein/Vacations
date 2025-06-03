@@ -1,17 +1,14 @@
 .Layout {
+    position: fixed;
+    
+    /* width: 100vw; */
+    width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    display: grid;
-    grid-template-rows: 10% 90%;
-    grid-template-areas:
-        "menu"
-        "main";
+    overflow: auto;
 }
 
-.Layout aside {
-    grid-area: menu;
-}
-
-.Layout main {
-    grid-area: main;
+main {
+    display: flex;
+    justify-content: center;
 }

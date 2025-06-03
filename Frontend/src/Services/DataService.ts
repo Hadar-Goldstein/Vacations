@@ -18,6 +18,20 @@ class DataService {
         return vacations;
     }
 
+        public async getImageName(): Promise<string> {
+        
+        if (store.getState().vacations.length > 0) return store.getState().vacations;
+        const response = await axios.get<string>(appConfig.imagesUrl);
+        const vacations = response.data;
+
+        // Save in global state
+        const action = vacationSlice.actions.initVacations(vacations);
+        store.dispatch(action);
+
+        return vacations;
+    }
+
+
     public async addVacation(vacation: VacationModel): Promise<void> {
 
         const headers = { "Content-Type": "multipart/form-data" };

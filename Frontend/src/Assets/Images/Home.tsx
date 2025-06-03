@@ -22,7 +22,7 @@ export function Home() {
                     {!showMain ?
                         (<motion.div key="home"
                             initial={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -50 }}
+                            exit={{ opacity: 0, y: -100 }}
                             transition={{ duration: 0.6 }}
                             className="startPage">
                             <p className="coco">W E L C O M E   T O</p>
@@ -31,7 +31,7 @@ export function Home() {
                         </motion.div>)
                         :
                         (<motion.div key="main"
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             className="endPage">

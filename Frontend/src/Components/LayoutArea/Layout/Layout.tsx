@@ -5,10 +5,8 @@ import "./Layout.css";
 export function Layout() {
     return (
         <div className="Layout">
-            <aside>
-                <Menu />
-            </aside>
             <main>
+                < Menu />
                 <Routing />
             </main>
         </div>

@@ -1,14 +1,24 @@
-.Home {
+.Home {}
+
+.test {
     position: relative;
-    width: 100%;
-    min-height: 100vh;
+    z-index: 0;
+    margin-top: 60px;
+}
+
+.homeImage {
+    position: absolute;
+    inset: 0;
+    width: -webkit-fill-available;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .startPage {
-    position: absolute;
-    width: 100%;
+    margin-top: 150px;
     text-align: center;
-    margin-top: 100px;
+
 }
 
 .coco {
@@ -42,8 +52,6 @@ button:hover {
 }
 
 .endPage {
-    position: absolute;
-    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -53,6 +61,7 @@ button:hover {
 .CardsContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
