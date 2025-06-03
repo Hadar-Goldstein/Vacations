@@ -17,6 +17,7 @@ class DataController {
         this.router.put("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.updateVacation);
         this.router.delete("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.deleteVacation);
         this.router.get("/vacations/images/:imageName", this.getImageFile);
+        this.router.get("/vacations/random-images", this.getRandomImages);
     }
 
     private async getAllVacations(request: Request, response: Response, next: NextFunction) {
@@ -88,6 +89,15 @@ class DataController {
         }
         catch (err: any) { next(err); }
     }
+
+    private async getRandomImages(request: Request, response: Response, next: NextFunction) {
+        try {
+            const randomImages = await dataService.getRandomImages();
+            response.json(randomImages);
+        }
+        catch (err: any) { next(err); }
+    }
+
 
 }
 

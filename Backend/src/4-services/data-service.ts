@@ -38,6 +38,20 @@ class DataService {
         return imageFileName;
     }
 
-}
+    public async getRandomImages() {
+        const vacations = await VacationModel.find().exec();
+        const randoms = [];
+        for(let i = 1; i <= 3; i++ ) {
+            const randomIndex  = Math.floor(Math.random() * vacations.length);
+            const imgUrl = vacations[randomIndex].imageUrl;
+            randoms.push(imgUrl);
+            vacations.splice(randomIndex ,1);
+        }
+        return randoms;
+    }
+
+    }
+
+
 
 export const dataService = new DataService();

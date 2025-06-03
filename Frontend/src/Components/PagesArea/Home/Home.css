@@ -13,6 +13,13 @@
     z-index: 0;
 }
 
+.HomeCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+    display: block;
+}
+
 .startPage {
     margin-top: 150px;
     text-align: center;

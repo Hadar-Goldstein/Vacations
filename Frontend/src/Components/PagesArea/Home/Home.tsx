@@ -1,8 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import background from "../../../Assets/Images/Background-Website.png"
+import { dataService } from "../../../Services/DataService";
+import { notify } from "../../../Utils/Notify";
 
 export function Home() {
 
@@ -12,6 +14,14 @@ export function Home() {
     function startButton() {
         navigate("/vacations");
     }
+
+    const [randomVacations, setRandomVacations] = useState([]);
+
+    useEffect(()=>{
+        dataService.getRandomImages()
+        .then( v => setRandomVacations(v))
+        .catch(err => notify.error(err));
+    },[]);
 
     return (
         <div className="Home">
@@ -39,9 +49,9 @@ export function Home() {
                             <p className="endPage-catchy">Dream Vacation</p>
                             <p className="endPage-coco2">I N   O N E   C L I C K</p>
                             <div className="CardsContainer">
-                                <div className="HomeCard"></div>
-                                <div className="HomeCard"></div>
-                                <div className="HomeCard"></div>
+                                <div className="HomeCard"><img src={randomVacations[0]}></img></div>
+                                <div className="HomeCard"><img src={randomVacations[1]}></img></div>
+                                <div className="HomeCard"><img src={randomVacations[2]}></img></div>
                             </div>
                             <button className="endPage-button" onClick={startButton} >G E T   S T A R T E D</button>
                         </motion.div>)}

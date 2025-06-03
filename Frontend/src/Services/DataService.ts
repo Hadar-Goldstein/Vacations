@@ -6,7 +6,7 @@ import { vacationSlice } from "../Redux/VacationSlice";
 
 class DataService {
     public async getAllVacations(): Promise<VacationModel[]> {
-        
+
         if (store.getState().vacations.length > 0) return store.getState().vacations;
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
@@ -18,8 +18,18 @@ class DataService {
         return vacations;
     }
 
-        public async getImageFile(imageFileName: string): Promise<string> {
-        
+    public async getRandomImages(): Promise<string[]> {
+
+        const response = await axios.get<string[]>(appConfig.randomImagesUrl);
+        const randomImages = response.data;
+
+        return randomImages;
+    }
+
+
+
+    public async getImageFile(imageFileName: string): Promise<string> {
+
         const response = await axios.get<string>(appConfig.imagesUrl + imageFileName);
         const imageUrl = response.data;
         return imageUrl;
