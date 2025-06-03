@@ -16,7 +16,7 @@ class DataController {
         this.router.post("/vacations", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.addVacation);
         this.router.put("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.updateVacation);
         this.router.delete("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.deleteVacation);
-        this.router.get("/api/vacations/images/:imageName", this.getImageFile);
+        this.router.get("/vacations/images/:imageName", this.getImageFile);
     }
 
     private async getAllVacations(request: Request, response: Response, next: NextFunction) {
@@ -31,7 +31,7 @@ class DataController {
         let imageJustUploaded = false;
         let imageName = undefined;
         try {
-            const image = request.files?.imageFileName as UploadedFile;
+            const image = request.files?.image as UploadedFile;
             imageName = await fileSaver.add(image);
             imageJustUploaded = true;
             const vacation = new VacationModel({ ...request.body, imageFileName: imageName });
@@ -51,7 +51,7 @@ class DataController {
 
         try {
             if (request.files?.image) {
-                const image = request.files.imageFileName as UploadedFile;
+                const image = request.files.image as UploadedFile;
                 oldImgName = await dataService.getImageName(request.params._id);
                 newImageName = await fileSaver.add(image);
                 imageJustUploaded = true;

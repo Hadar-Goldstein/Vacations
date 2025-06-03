@@ -1,5 +1,7 @@
 import { Document, Schema, model } from "mongoose";
 import { calculate } from "../2-utils/calculate";
+import { app } from "../app";
+import { appConfig } from "../2-utils/app-config";
 
 // 1. Interface representing our model: 
 export interface IVacationModel extends Document {
@@ -9,6 +11,7 @@ export interface IVacationModel extends Document {
     endDate: Date;
     price: Number;
     imageFileName: string;
+    imageUrl: string;
 }
 
 // 2. Schema describing model rules: 
@@ -63,6 +66,12 @@ export const VacationSchema = new Schema<IVacationModel>({
         required: [true, "Missing price."],
         min: [0, "Price can't be negative."],
         max: [10000, "Price can't exceed 10,000."]
+    },
+    imageFileName: {
+        type: String,
+        required: [true, "Missing image File Name."],
+        min: [5, "Image name must bt 5 characters ."],
+        max: [250, "Image Name can't exceed 250 characters ."]
     }
 }, {
     versionKey: false,
@@ -75,6 +84,10 @@ VacationSchema.pre("save", function (this: IVacationModel, next) {
         this.destination = calculate.toTitleCase(this.destination);
     }
     next();
+});
+
+VacationSchema.virtual("imageUrl").get(function (this: IVacationModel) {
+    return `${appConfig.imageBaseURL}${this.imageFileName}`;
 });
 
 

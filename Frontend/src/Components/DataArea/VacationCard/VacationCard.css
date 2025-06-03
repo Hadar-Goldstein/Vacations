@@ -1,0 +1,19 @@
+.Card {
+    width: 300px;
+    border: 1px solid #623e2a;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #f4f1ed;
+}
+
+.Card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.Card div {
+    padding: 10px;
+    border-top: 1px solid #eee;
+}

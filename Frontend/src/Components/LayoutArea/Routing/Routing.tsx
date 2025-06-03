@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { List } from "../../DataArea/List/List";
+import { Vacations } from "../../DataArea/Vacations/Vacations";
 import { New } from "../../DataArea/New/New";
 import { Home } from "../../PagesArea/Home/Home";
 import { Page404 } from "../Page404/Page404";
@@ -14,7 +14,7 @@ export function Routing() {
 
                 <Route path="/home" element={<Home />} />
 
-                <Route path="/vacations" element={<List />} />
+                <Route path="/vacations" element={<Vacations />} />
                 
                 <Route path="/new" element={<New />} />
 

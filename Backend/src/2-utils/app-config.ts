@@ -9,6 +9,7 @@ class AppConfig {
     public readonly isProduction = process.env.ENVIRONMENT === "production";
     public readonly port = +process.env.PORT;
     public readonly mongodbConnectionString = process.env.MONGO_CONNECTION_STRING;
+    public readonly imageBaseURL = process.env.IMAGE_URL;
 }
 
 export const appConfig = new AppConfig();
