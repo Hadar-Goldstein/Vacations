@@ -4,7 +4,7 @@ type CardProps = {
 	
 };
 
-export function Card(props: CardProps) {
+export function Card(_props: CardProps) {
     return (
         <div className="Card">
 			
