@@ -1,0 +1,7 @@
+.coco {
+    display: flex;
+    gap: 25px;
+    text-align: center;
+    font-family: 'CocoGothic';
+    color: #ffffff;
+}

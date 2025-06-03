@@ -1,0 +1,12 @@
+.Home {
+    
+}
+
+.coco {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+    font-family: 'CocoGothic';
+    color: #ffffff;
+}

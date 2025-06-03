@@ -1,0 +1,41 @@
+.Home {
+    position: "relative";
+    overflow: "hidden";
+    height: "100vh"
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px; */
+}
+
+.coco {
+    font-family: 'CocoGothic';
+    color: #ffffff;
+    white-space: pre;
+}
+
+.catchy {
+    color: #ffffff;
+    font-family: 'Catchy-mager';
+    font-size: 60px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: none;
+    font-size: 12px;
+    font-family: 'CocoGothic';
+    width: 180px;
+    white-space: pre;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    margin-top: 80px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

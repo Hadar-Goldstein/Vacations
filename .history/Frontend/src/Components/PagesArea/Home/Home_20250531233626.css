@@ -1,0 +1,18 @@
+.Home {
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.coco {
+  display: flex;
+  gap: 25px;
+  font-family: 'CocoGothic';
+  color: #ffffff;
+}
+
+.catchy {
+    font-family: 'Catchy-mager';
+    color: #ffffff;
+}

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./Charming scenery.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    src: url('./CocoGothic-Bold_trial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    src: url('./CocoGothic-Bold_trial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

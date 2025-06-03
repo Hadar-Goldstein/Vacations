@@ -1,0 +1,16 @@
+
+
+class DataService {
+
+    public getAllVacation(): Promise<ICategoryModel[]> {
+        return .find().exec();
+    }
+
+    public getAllProductsByCategoryId(categoryId: string): Promise<IProductModel[]> {
+        return ProductModel.find({categoryId: {$eq: categoryId}}).populate("category").exec();
+    }
+
+
+}
+
+export const dataService = new DataService();

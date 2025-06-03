@@ -1,0 +1,8 @@
+.HomeCard {
+	  background-color: #f6f2ee;
+  border: 1px solid #b9a695;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
