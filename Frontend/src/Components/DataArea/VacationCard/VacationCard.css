@@ -7,13 +7,44 @@
     background-color: #f4f1ed;
 }
 
-.Card img {
+.ImageContainer img {
     width: 100%;
+    height: 100%;
     height: auto;
     display: block;
+    border-radius: 5px;
 }
 
-.Card div {
+.ImageContainer {
     padding: 10px;
-    border-top: 1px solid #eee;
+
+}
+
+.destination-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 5px;
+}
+
+.test {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 16px;
+    margin: 5px;
+    padding: 0;
+}
+
+.test svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.text {
+    text-align: left;
+    width: 240px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
 }
