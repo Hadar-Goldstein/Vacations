@@ -27,7 +27,7 @@
     margin: 5px;
 }
 
-.test {
+.description-container {
     display: flex;
     align-items: baseline;
     gap: 8px;

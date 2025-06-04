@@ -22,7 +22,7 @@ export function VacationCard(props: VacationCardProps) {
                 <CalendarCheck size={22} />
                 <div>{calculate.formatDateRangeAndNights(props.vacation.startDate, props.vacation.endDate)}</div>
             </div>
-            <div className="test">
+            <div className="description-container">
                 <Info size={22} />
                 <p className="text">{props.vacation.description}</p>
             </div>
