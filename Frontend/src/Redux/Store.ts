@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { LikeModel } from "../Models/LikeModel";
+import { LikeObjModel } from "../Models/LikeObjModel";
 import { UserModel } from "../Models/UserModel";
 import { VacationModel } from "../Models/VacationModel";
 import { likeSlice } from "./LikesSlice";
@@ -9,7 +9,7 @@ import { vacationSlice } from "./VacationSlice";
 export type AppState = {
     vacations: VacationModel[];
     user: UserModel;
-    likes: LikeModel[];
+    likes: LikeObjModel[];
 };
 
 export const store = configureStore<AppState>({

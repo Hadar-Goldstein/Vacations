@@ -13,6 +13,13 @@
 }
 
 @font-face {
+    font-family: 'CocoGothicLight';
+    src: url('./CocoGothic-Light_trial.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Catchy-mager';
     src: url('./catchy-mager.otf') format('opentype');
     font-weight: normal;

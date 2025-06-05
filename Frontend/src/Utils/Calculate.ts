@@ -1,4 +1,12 @@
+import { LikeObjModel } from "../Models/LikeObjModel";
+
 class Calculate {
+
+public async getLikesCount(_id: string, likes: LikeObjModel[]) :Promise<number> {
+   const likeObj = likes.find(obj => obj.vacationId === _id);
+   const vacationLikes = likeObj.likes;
+   return vacationLikes;
+}
 
 public formatDateRangeAndNights(startIso: string, endIso: string): string {
     const startDate = new Date(startIso);

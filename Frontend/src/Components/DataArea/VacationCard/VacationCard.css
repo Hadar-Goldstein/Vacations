@@ -4,7 +4,6 @@
     border-radius: 10px;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    /* background-color: #f4f1ed; */
     background-color: #efebe5;
 
 }
@@ -21,7 +20,28 @@
     height: 200px;
     overflow: hidden;
     padding: 5px;
+    position: relative;
+}
 
+.like-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(255, 255, 255, 0.90);
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7em;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.like-badge:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .destination-container {
