@@ -4,6 +4,7 @@ import { New } from "../../DataArea/New/New";
 import { Home } from "../../PagesArea/Home/Home";
 import { Page404 } from "../Page404/Page404";
 import "./Routing.css";
+import { Login } from "../../UserArea/Login/Login";
 
 export function Routing() {
 
@@ -17,6 +18,10 @@ export function Routing() {
                 <Route path="/vacations" element={<Vacations />} />
                 
                 <Route path="/new" element={<New />} />
+
+                <Route path="/register" element={<New />} />
+                
+                <Route path="/login" element={<Login />} />
 
                 <Route path="*" element={<Page404 />} />
             </Routes>

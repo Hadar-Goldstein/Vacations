@@ -1,0 +1,94 @@
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginImage {
+    position: absolute;
+    inset: 0;
+    width: -webkit-fill-available;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.title-container {
+    font-family: 'CocoGothic';
+    white-space: pre;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.subtitle-container {
+    font-family: 'CocoGothicLight';
+    margin-top: 0;
+}
+
+.link {
+    font-size: 14px;
+    color: #000;
+}
+
+.login-container {
+    background-color: rgb(239, 235, 229, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+    color: #000;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; 
+}
+
+.login-form label {
+    font-family: 'CocoGothic';
+    font-size: 14px;
+    margin-bottom: 0.1rem;
+    color: #623e2a;
+}
+
+.login-form input {
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #623e2a;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.login-button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: none;
+    font-size: 12px;
+    font-family: 'CocoGothic';
+    width: 150px;
+    border-radius: 10px;
+    white-space: pre;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    margin-top: 30px;
+}
+

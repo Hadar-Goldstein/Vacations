@@ -11,6 +11,8 @@ export function Menu() {
             <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
             <NavLink to="/vacations" className={"MenuLink"}>Vacations</NavLink>               
             <NavLink to="/new" className={"MenuLink"}>New</NavLink>
+            <NavLink to="/register" className={"MenuLink"}>Register</NavLink>
+            <NavLink to="/login" className={"MenuLink"}>Login</NavLink>
             </div>
 
             <img src={gif}/>
