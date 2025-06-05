@@ -5,3 +5,26 @@ html, body, #root {
     text-align: center;
     background-color: #efebe5;
 }
+
+/* Global scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  border: 2px solid transparent;
+  border-bottom: none;
+  border-top: none;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}

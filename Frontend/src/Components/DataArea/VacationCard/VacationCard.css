@@ -46,10 +46,13 @@
 }
 
 .text {
-    display: flex;
     text-align: left;
-    width: 240px;
+    width: -webkit-fill-available;
+    height: 100px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    line-height: 1.4;
     padding: 0;
     margin: 0;
-    line-height: 1.4;
 }
