@@ -23,8 +23,9 @@ html, body, #root {
   border-bottom: none;
   border-top: none;
   background-clip: content-box;
+  
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color:  rgba(0, 0, 0, 0.55);
 }

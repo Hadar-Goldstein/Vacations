@@ -14,6 +14,7 @@ export function VacationCard(props: VacationCardProps) {
             <div className="ImageContainer">
                 <img src={props.vacation.imageUrl} crossOrigin="anonymous"></img>
             </div>
+            <div className="scroller-div">
             <div className="destination-container">
                 <MapPin size={22} />
                 <div>{props.vacation.destination}</div>
@@ -26,8 +27,8 @@ export function VacationCard(props: VacationCardProps) {
                 <Info size={22} />
                 <p className="text">{props.vacation.description}</p>
             </div>
-
-            <div className="destination-container">
+            </div>
+            <div className="price-container">
                 <CurrencyDollar size={22} />
                 <div>{props.vacation.price}</div>
             </div>

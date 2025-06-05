@@ -17,7 +17,7 @@ public formatDateRangeAndNights(startIso: string, endIso: string): string {
     const msPerNight = 1000 * 60 * 60 * 24;
     const nights = Math.round((endDate.getTime() - startDate.getTime()) / msPerNight);
 
-    return `${formattedStart} - ${formattedEnd}  |  ${nights} night${nights !== 1 ? 's' : ''}`;
+    return `${formattedStart} - ${formattedEnd}, ${nights} night${nights !== 1 ? 's' : ''}`;
 }
 
 
