@@ -5,6 +5,7 @@ import { Home } from "../../PagesArea/Home/Home";
 import { Page404 } from "../Page404/Page404";
 import "./Routing.css";
 import { Login } from "../../UserArea/Login/Login";
+import { Register } from "../../UserArea/Register/Register";
 
 export function Routing() {
 
@@ -19,8 +20,8 @@ export function Routing() {
                 
                 <Route path="/new" element={<New />} />
 
-                <Route path="/register" element={<New />} />
-                
+                <Route path="/register" element={<Register />} />
+
                 <Route path="/login" element={<Login />} />
 
                 <Route path="*" element={<Page404 />} />
