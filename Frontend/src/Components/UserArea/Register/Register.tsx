@@ -31,20 +31,20 @@ export function Register(): JSX.Element {
                 <p className="rg-subtitle-container">Already have an account? <NavLink to={"/login"} className="link">Sign In</NavLink></p>
                 <div className="rg-form-group">
                     <label>First Name:</label>
-                    <input type="text" {...register("firstName")} />
+                    <input type="text" {...register("firstName")} required minLength={2} maxLength={50}/>
                 </div>
                 <div className="rg-form-group">
                     <label>Last Name:</label>
-                    <input type="text" {...register("lastName")} />
+                    <input type="text" {...register("lastName")}required minLength={2} maxLength={50}/>
                 </div>
 
                 <div className="rg-form-group">
                     <label>Email:</label>
-                    <input type="email"  {...register("email")} />
+                    <input type="email"  {...register("email")} required/>
                 </div>
                 <div className="rg-form-group">
                     <label>Password:</label>
-                    <input type="Password" {...register("password")} />
+                    <input type="Password" {...register("password")} minLength={4} maxLength={100}/>
                 </div>
 
                 <div className="rg-button-container">

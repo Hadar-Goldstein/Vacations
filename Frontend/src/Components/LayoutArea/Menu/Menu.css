@@ -38,3 +38,8 @@
     height: 50px;
     margin-right: 20px;
 }
+
+.user-menu-container {
+    display: flex;
+    margin-left: 400px;
+}

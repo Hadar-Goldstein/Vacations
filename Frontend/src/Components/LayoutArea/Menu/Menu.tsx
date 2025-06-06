@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Menu.css";
 import gif from "../../../Assets/Images/hotel-unscreen.gif"
+import { UserMenu } from "../../UserArea/UserMenu/UserMenu";
 
 export function Menu() {
 
@@ -11,11 +12,12 @@ export function Menu() {
             <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
             <NavLink to="/vacations" className={"MenuLink"}>Vacations</NavLink>               
             <NavLink to="/new" className={"MenuLink"}>New</NavLink>
-            <NavLink to="/register" className={"MenuLink"}>Register</NavLink>
-            <NavLink to="/login" className={"MenuLink"}>Login</NavLink>
             </div>
 
+            <div className="user-menu-container"><UserMenu></UserMenu></div>
+
             <img src={gif}/>
+
             
         </div>
     );
