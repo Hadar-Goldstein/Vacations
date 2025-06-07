@@ -1,12 +1,12 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { AddVacation } from "../../DataArea/AddVacation/AddVacation";
 import { Vacations } from "../../DataArea/Vacations/Vacations";
-import { New } from "../../DataArea/New/New";
 import { Home } from "../../PagesArea/Home/Home";
-import { Page404 } from "../Page404/Page404";
-import "./Routing.css";
+import { Unauthorized } from "../../PagesArea/Unauthorized/Unauthorized";
 import { Login } from "../../UserArea/Login/Login";
 import { Register } from "../../UserArea/Register/Register";
-import { Unauthorized } from "../../PagesArea/Unauthorized/Unauthorized";
+import { Page404 } from "../Page404/Page404";
+import "./Routing.css";
 
 export function Routing() {
 
@@ -19,7 +19,7 @@ export function Routing() {
 
                 <Route path="/vacations" element={<Vacations />} />
                 
-                <Route path="/new" element={<New />} />
+                <Route path="/add-vacation" element={<AddVacation />} />
 
                 <Route path="/register" element={<Register />} />
 

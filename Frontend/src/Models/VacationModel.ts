@@ -7,4 +7,5 @@ export class VacationModel {
     public price: number;
     public imageFileName: string;
     public imageUrl: string;
+    public image: File;
 }

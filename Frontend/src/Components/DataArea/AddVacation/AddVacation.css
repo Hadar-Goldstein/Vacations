@@ -1,0 +1,78 @@
+.AddVacation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.add-container {
+    background-color: rgb(239, 235, 229, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+    color: #000;
+}
+
+.add-form input, textarea {
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #623e2a;
+}
+
+.add-title-container {
+    font-family: 'CocoGothic';
+    white-space: pre;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+.add-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.add-form-group label {
+    font-family: 'CocoGothic';
+    font-size: 14px;
+    margin-bottom: 0.1rem;
+    color: #623e2a;
+}
+.add-button-container {
+    text-align: center;
+}
+
+.add-button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: none;
+    font-size: 12px;
+    font-family: 'CocoGothic';
+    width: 120px;
+    border-radius: 10px;
+    white-space: pre;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    margin-top: 0;
+    margin-bottom: -10px;
+}
+

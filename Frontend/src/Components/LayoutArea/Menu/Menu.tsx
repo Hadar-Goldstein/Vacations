@@ -11,7 +11,7 @@ export function Menu() {
             <div className="MenuLinks">
             <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
             <NavLink to="/vacations" className={"MenuLink"}>Vacations</NavLink>               
-            <NavLink to="/new" className={"MenuLink"}>New</NavLink>
+            <NavLink to="/add-vacation" className={"MenuLink"}>Add Vacation</NavLink>
             </div>
 
             <div className="user-menu-container"><UserMenu></UserMenu></div>
