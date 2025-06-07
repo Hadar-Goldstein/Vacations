@@ -15,7 +15,7 @@ export function Login(): JSX.Element {
     async function send(credentials: CredentialsModel) {
         try {
             await userService.login(credentials);
-            notify.success(`Welcome Back, ${store.getState().user.firstName} 😉`);
+            notify.success(`Welcome, ${store.getState().user.firstName} 😉`);
             navigate("/vacations");
         }
         catch (err: any) {
