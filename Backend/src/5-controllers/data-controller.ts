@@ -12,7 +12,7 @@ class DataController {
     public readonly router = express.Router();
 
     public constructor() {
-        this.router.get("/vacations", this.getAllVacations);
+        this.router.get("/vacations", securityMiddleware.validateToken, this.getAllVacations);
         this.router.post("/vacations", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.addVacation);
         this.router.put("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.updateVacation);
         this.router.delete("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.deleteVacation);

@@ -16,7 +16,7 @@ export function Login(): JSX.Element {
         try {
             await userService.login(credentials);
             notify.success(`Welcome Back, ${store.getState().user.firstName} 😉`);
-            navigate("/home");
+            navigate("/vacations");
         }
         catch (err: any) {
             notify.error(err);

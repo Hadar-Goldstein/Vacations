@@ -6,6 +6,7 @@ import { Page404 } from "../Page404/Page404";
 import "./Routing.css";
 import { Login } from "../../UserArea/Login/Login";
 import { Register } from "../../UserArea/Register/Register";
+import { Unauthorized } from "../../PagesArea/Unauthorized/Unauthorized";
 
 export function Routing() {
 
@@ -23,6 +24,8 @@ export function Routing() {
                 <Route path="/register" element={<Register />} />
 
                 <Route path="/login" element={<Login />} />
+
+                <Route path="/unauthorized" element={<Unauthorized />} />
 
                 <Route path="*" element={<Page404 />} />
             </Routes>

@@ -1,11 +1,11 @@
+import { User } from 'phosphor-react';
 import { useSelector } from "react-redux";
-import "./UserMenu.css";
-import { AppState, store } from "../../../Redux/Store";
-import { UserModel } from "../../../Models/UserModel";
 import { NavLink } from "react-router-dom";
+import { UserModel } from "../../../Models/UserModel";
+import { AppState } from "../../../Redux/Store";
 import { userService } from "../../../Services/UserService";
 import { notify } from "../../../Utils/Notify";
-import { User } from 'phosphor-react';
+import "./UserMenu.css";
 
 
 export function UserMenu(): JSX.Element {

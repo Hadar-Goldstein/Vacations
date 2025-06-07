@@ -7,10 +7,13 @@ import { likesService } from "../../../Services/LikesService";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
 import { LikeObjModel } from "../../../Models/LikeObjModel";
+import { UserModel } from "../../../Models/UserModel";
+import { useNavigate } from "react-router-dom";
 
 export function Vacations() {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
+    const user = useSelector<AppState, UserModel>(store => store.user);
     const likesPerVacation = useSelector<AppState, LikeObjModel[]>(store => store.likes);
 
     function getLikesCount(_id: string): number {
@@ -19,11 +22,17 @@ export function Vacations() {
         return likeObj?.likes ?? 0;
     }
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         dataService.getAllVacations();
         likesService.getLikesPerVacation().then(() => {
             console.log("likesPerVacation from Redux:", likesPerVacation);
         });
+
+        if(!user) {
+            navigate("/unauthorized");
+        }
 
     }, []);
 
