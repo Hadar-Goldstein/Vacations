@@ -9,6 +9,7 @@ import { dataService } from "../../../Services/DataService";
 import { likesService } from "../../../Services/LikesService";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
+import { notify } from "../../../Utils/Notify";
 
 export function Vacations() {
 
@@ -40,11 +41,36 @@ export function Vacations() {
     }, [user]);
 
 
+    async function deleteVacation(_id: string) {
+        try {
+
+            const sure = confirm("Are you sure?");
+            if (!sure) return;
+            await dataService.deleteVacation(_id);
+            notify.success("Vacation has been deleted");
+        }
+        catch (err: any) {
+            notify.error(err);
+        }
+
+    }
+
+    async function editVacation(vacation: VacationModel) {
+        try {
+            await dataService.updateVacation(vacation);
+            notify.success("Vacation has been updated");
+        }
+        catch (err: any) {
+            notify.error(err);
+        }
+
+    }
+
 
     return (
         <div className="Vacations">
             {user?.role === 1 && vacations.map(v => (
-                <VacationCard key={v._id} vacation={v} />
+                <VacationCard key={v._id} vacation={v} deleteCard={deleteVacation} editCard={editVacation} />
             ))}
 
             {user?.role !== 1 && vacations.map(v => (

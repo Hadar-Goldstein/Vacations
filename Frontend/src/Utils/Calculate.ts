@@ -38,7 +38,12 @@ class Calculate {
         return `${year}-${month}-${day}`;
     }
 
-
+    public toDateInputValue(dateString: string): string {
+        const date = new Date(dateString);
+        const offset = date.getTimezoneOffset();
+        const localDate = new Date(date.getTime() - offset * 60 * 1000);
+        return localDate.toISOString().split("T")[0];
+    }
 
 }
 
