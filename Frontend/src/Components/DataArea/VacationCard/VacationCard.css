@@ -2,10 +2,9 @@
     width: 300px;
     box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
     font-family: Arial, sans-serif;
     background-color: #efebe5;
-
 }
 
 .ImageContainer img {
@@ -18,7 +17,7 @@
 
 .ImageContainer {
     height: 200px;
-    overflow: hidden;
+    overflow: visible;
     padding: 5px;
     position: relative;
 }
@@ -89,4 +88,33 @@
     gap: 5px;
     margin: 5px;
     padding: 10px;
+}
+
+/* test */
+
+.admin-container {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+    padding: 2px;
+}
+
+.admin-container .edit, .delete {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+
+}
+
+.admin-container>div:hover {
+    background-color: rgba(240, 240, 240, 1);
 }

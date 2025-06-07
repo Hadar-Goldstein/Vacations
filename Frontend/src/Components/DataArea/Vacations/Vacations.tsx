@@ -1,19 +1,20 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { LikeObjModel } from "../../../Models/LikeObjModel";
+import { UserModel } from "../../../Models/UserModel";
 import { VacationModel } from "../../../Models/VacationModel";
 import { AppState } from "../../../Redux/Store";
 import { dataService } from "../../../Services/DataService";
 import { likesService } from "../../../Services/LikesService";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
-import { LikeObjModel } from "../../../Models/LikeObjModel";
-import { UserModel } from "../../../Models/UserModel";
-import { useNavigate } from "react-router-dom";
 
 export function Vacations() {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
     const user = useSelector<AppState, UserModel>(store => store.user);
+
     const likesPerVacation = useSelector<AppState, LikeObjModel[]>(store => store.likes);
 
     function getLikesCount(_id: string): number {
@@ -25,23 +26,31 @@ export function Vacations() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        dataService.getAllVacations();
-        likesService.getLikesPerVacation().then(() => {
+        async function fetchData() {
+            await dataService.getAllVacations();
+            await likesService.getLikesPerVacation();
             console.log("likesPerVacation from Redux:", likesPerVacation);
-        });
-
-        if(!user) {
-            navigate("/unauthorized");
         }
 
-    }, []);
+        if (!user) {
+            navigate("/unauthorized");
+        } else {
+            fetchData();
+        }
+    }, [user]);
+
 
 
     return (
         <div className="Vacations">
-            {vacations.map(v => (
+            {user?.role === 1 && vacations.map(v => (
+                <VacationCard key={v._id} vacation={v} />
+            ))}
+
+            {user?.role !== 1 && vacations.map(v => (
                 <VacationCard key={v._id} vacation={v} likes={getLikesCount(v._id)} />
             ))}
+
         </div>
     );
 }
