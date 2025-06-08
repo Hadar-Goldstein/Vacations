@@ -48,7 +48,9 @@ class DataService {
     }
 
     public async updateVacation(vacation: VacationModel): Promise<void> {
+        console.log("Vacation ID:", vacation._id);
         const headers = { "Content-Type": "multipart/form-data" };
+        console.log(appConfig.vacationsUrl + vacation._id, vacation, { headers });
         const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation._id, vacation, { headers });
         const dbVacation = response.data;
         const action = vacationSlice.actions.updateVacation(dbVacation);

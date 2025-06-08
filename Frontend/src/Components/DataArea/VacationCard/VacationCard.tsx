@@ -6,6 +6,7 @@ import { Tooltip } from 'react-tooltip';
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { notify } from '../../../Utils/Notify';
 
 
 type VacationCardProps = {
@@ -30,6 +31,14 @@ export function VacationCard(props: VacationCardProps) {
     });
 
     function handleEdit(vacation: VacationModel) {
+        const start = new Date(vacation.startDate);
+        const end = new Date(vacation.endDate);
+
+        if (end <= start) {
+            notify.error("End date must be after start date");
+            return;
+        }
+
         vacation._id = props.vacation._id;
         props.editCard(vacation);
         setOpen(false);
@@ -38,6 +47,8 @@ export function VacationCard(props: VacationCardProps) {
     function removeCard() {
         props.deleteCard(props.vacation._id);
     }
+
+    const tomorrow = calculate.getTomorrowDate();
 
     return (
         <div className="Card">
@@ -76,13 +87,13 @@ export function VacationCard(props: VacationCardProps) {
                                 <Dialog.Description className="dialog-description" />
                                 <form onSubmit={handleSubmit(handleEdit)}>
                                     <label>Destination </label>
-                                    <input type="text" {...register("destination")} required />
+                                    <input type="text" {...register("destination")} required minLength={2} maxLength={50} />
                                     <label>Start Date </label>
-                                    <input type="date" {...register("startDate")} required />
+                                    <input type="date" {...register("startDate")} required min={tomorrow} />
                                     <label>End Date </label>
-                                    <input type="date" {...register("endDate")} required />
+                                    <input type="date" {...register("endDate")} required min={tomorrow} />
                                     <label>Description </label>
-                                    <textarea rows={4} className="dialog-textarea" {...register("description")} required />
+                                    <textarea rows={4} className="dialog-textarea" {...register("description")} required minLength={50} maxLength={450} />
                                     <label>Price </label>
                                     <input type="number" step="any" {...register("price")} required min={0.0} max={10000.0} />
                                     <label>Change following image</label>
@@ -91,7 +102,7 @@ export function VacationCard(props: VacationCardProps) {
                                             <img src={props.vacation.imageUrl} alt="Current Vacation" />
                                         </div>
                                     )}
-                                    <input type="file" accept="image/*" {...register("image")}/>
+                                    <input type="file" accept="image/*" {...register("image")} />
                                     <div>
                                         <button className="close-button">S A V E</button>
                                     </div>

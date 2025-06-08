@@ -46,21 +46,27 @@ class DataController {
     }
 
     private async updateVacation(request: Request, response: Response, next: NextFunction) {
-        let newImageName = undefined;
-        let oldImgName = undefined;
+        let newImageName: string | undefined;
         let imageJustUploaded = false;
 
         try {
+            const oldImgName = await dataService.getImageName(request.params._id);
             if (request.files?.image) {
                 const image = request.files.image as UploadedFile;
-                oldImgName = await dataService.getImageName(request.params._id);
                 newImageName = await fileSaver.add(image);
+                console.log(newImageName);
+                request.body.imageFileName = newImageName;
+                await fileSaver.delete(oldImgName);
                 imageJustUploaded = true;
-
-                if (oldImgName) await fileSaver.delete(oldImgName);
             }
+            else {
+                request.body.imageFileName = oldImgName;
+            }
+            
             request.body._id = request.params._id;
-            const vacation = new VacationModel({ ...request.body, imageFileName: newImageName ?? oldImgName });
+
+            const vacation = new VacationModel(request.body);
+            // console.log(vacation);
             const dbVacation = await dataService.updateVacation(vacation);
             response.json(dbVacation);
         }

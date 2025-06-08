@@ -57,6 +57,7 @@ export function Vacations() {
 
     async function editVacation(vacation: VacationModel) {
         try {
+            vacation.image = (vacation.image as unknown as FileList)[0];
             await dataService.updateVacation(vacation);
             notify.success("Vacation has been updated");
         }
