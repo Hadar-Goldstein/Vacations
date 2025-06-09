@@ -9,7 +9,8 @@ import { useForm } from 'react-hook-form';
 import { notify } from '../../../Utils/Notify';
 import { useSelector } from 'react-redux';
 import { UserModel } from '../../../Models/UserModel';
-import { AppState } from '../../../Redux/Store';
+import { AppState, store } from '../../../Redux/Store';
+import { LikeModel } from '../../../Models/LikeModel';
 
 type VacationCardProps = {
     vacation: VacationModel;
@@ -21,6 +22,13 @@ type VacationCardProps = {
 export function VacationCard(props: VacationCardProps) {
 
     const user = useSelector<AppState, UserModel>(store => store.user);
+    const userLikes = useSelector<AppState, LikeModel[]>(store => store.likes);
+
+    function didUserLikeVacation(vacation: VacationModel): boolean {
+        return userLikes.some(like => like.vacationId === vacation._id);
+    }
+
+
 
     const [open, setOpen] = useState(false);
 
@@ -58,15 +66,30 @@ export function VacationCard(props: VacationCardProps) {
         <div className="Card">
             <div className="ImageContainer">
                 <img src={props.vacation.imageUrl} crossOrigin="anonymous"></img>
-                {user?.role === 2 &&
+
+                {user?.role === 2 && didUserLikeVacation(props.vacation) &&
+                    <div className="like-badge-isLiked">
+                        <HeartStraight size={18} />
+                        <span>{props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>
+                    </div>
+                }
+
+
+                {user?.role === 2 && !didUserLikeVacation(props.vacation) && props.vacation.likesCount > 0 &&
                     <div className="like-badge">
                         <HeartStraight size={18} />
-                        <span>Like {props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>
+                        {<span className='isLiked'>{props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>}
+                    </div>
+                }
+
+                {user?.role === 2 && !didUserLikeVacation(props.vacation) && props.vacation.likesCount === 0 &&
+                    <div className="like-badge">
+                        <HeartStraight size={18} />
                     </div>
                 }
 
                 <Dialog.Root open={open} onOpenChange={setOpen}>
-                    {user?.role === 1  && (
+                    {user?.role === 1 && (
                         <div className="admin-container">
                             <Dialog.Trigger asChild>
                                 <div className="edit">

@@ -149,7 +149,7 @@
 .dialog-content {
     background-color: rgb(239, 235, 229);
     border-radius: 12px;
-    padding: 24px; 
+    padding: 24px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -219,8 +219,31 @@
 }
 
 .preview-image img {
-  max-width: 100%;
-  max-height: 150px;
-  border-radius: 8px;
-  margin-bottom: 8px;
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+
+.like-badge-isLiked {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(192, 57, 43, 0.95);
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7em;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+
+.like-badge-isLiked:hover {
+    background-color: rgba(192, 57, 43, 1);
 }

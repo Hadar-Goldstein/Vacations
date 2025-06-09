@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LikeObjModel } from "../../../Models/LikeObjModel";
 import { UserModel } from "../../../Models/UserModel";
 import { VacationModel } from "../../../Models/VacationModel";
 import { AppState } from "../../../Redux/Store";
 import { dataService } from "../../../Services/DataService";
 import { likesService } from "../../../Services/LikesService";
+import { notify } from "../../../Utils/Notify";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
-import { notify } from "../../../Utils/Notify";
 
 export function Vacations() {
 
@@ -27,6 +26,7 @@ export function Vacations() {
     useEffect(() => {
         async function fetchData() {
             await dataService.getAllVacations();
+            await likesService.getLikesByUserId(user._id);
         }
 
         if (!user) {

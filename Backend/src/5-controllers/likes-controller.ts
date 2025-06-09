@@ -8,15 +8,16 @@ class LikesController {
     public readonly router = express.Router();
 
     public constructor() {
-        this.router.get("/likes", this.getLikesPerVacation);
         this.router.get("/likes/:_id([0-9a-f]{24})", this.getLikesByUserId);
+        this.router.get("/likes", this.getLikes);
         this.router.post("/likes", this.addLike);
         this.router.delete("/likes/:_id([0-9a-f]{24})", this.removeLike);
 
     }
-    private async getLikesPerVacation(request: Request, response: Response, next: NextFunction) {
+
+    private async getLikes(request: Request, response: Response, next: NextFunction) {
         try {
-            const likes = await likesService.getLikesPerVacation();
+            const likes = await likesService.getLikes();
             response.json(likes);
         }
         catch (err: any) { next(err); }
