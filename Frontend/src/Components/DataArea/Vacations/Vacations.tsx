@@ -16,21 +16,17 @@ export function Vacations() {
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
     const user = useSelector<AppState, UserModel>(store => store.user);
 
-    const likesPerVacation = useSelector<AppState, LikeObjModel[]>(store => store.likes);
-
-    function getLikesCount(_id: string): number {
-        const likeObj = likesPerVacation.find(obj => obj.vacationId === _id);
-        console.log("Vacation ID:", _id, "=> Likes object:", likeObj);
-        return likeObj?.likes ?? 0;
-    }
+    // function getLikesCount(_id: string): number {
+    //     const likeObj = likesPerVacation.find(obj => obj.vacationId === _id);
+    //     console.log("Vacation ID:", _id, "=> Likes object:", likeObj);
+    //     return likeObj?.likes ?? 0;
+    // }
 
     const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
             await dataService.getAllVacations();
-            await likesService.getLikesPerVacation();
-            console.log("likesPerVacation from Redux:", likesPerVacation);
         }
 
         if (!user) {
@@ -67,7 +63,6 @@ export function Vacations() {
 
     }
 
-
     return (
         <div className="Vacations">
             {user?.role === 1 && vacations.map(v => (
@@ -75,7 +70,7 @@ export function Vacations() {
             ))}
 
             {user?.role !== 1 && vacations.map(v => (
-                <VacationCard key={v._id} vacation={v} likes={getLikesCount(v._id)} />
+                <VacationCard key={v._id} vacation={v} />
             ))}
 
         </div>

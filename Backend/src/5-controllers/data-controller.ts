@@ -66,7 +66,6 @@ class DataController {
             request.body._id = request.params._id;
 
             const vacation = new VacationModel(request.body);
-            // console.log(vacation);
             const dbVacation = await dataService.updateVacation(vacation);
             response.json(dbVacation);
         }

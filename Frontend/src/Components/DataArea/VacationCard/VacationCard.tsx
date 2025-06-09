@@ -7,16 +7,20 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { notify } from '../../../Utils/Notify';
-
+import { useSelector } from 'react-redux';
+import { UserModel } from '../../../Models/UserModel';
+import { AppState } from '../../../Redux/Store';
 
 type VacationCardProps = {
     vacation: VacationModel;
-    likes?: number;
+    // likes?: number;
     deleteCard?: (_id: string) => void,
     editCard?: (vacation: VacationModel) => void
 };
 
 export function VacationCard(props: VacationCardProps) {
+
+    const user = useSelector<AppState, UserModel>(store => store.user);
 
     const [open, setOpen] = useState(false);
 
@@ -54,15 +58,15 @@ export function VacationCard(props: VacationCardProps) {
         <div className="Card">
             <div className="ImageContainer">
                 <img src={props.vacation.imageUrl} crossOrigin="anonymous"></img>
-                {props.likes !== undefined && (
+                {user?.role === 2 &&
                     <div className="like-badge">
                         <HeartStraight size={18} />
-                        <span>Like {props.likes > 0 ? ` ${props.likes}` : ""}</span>
+                        <span>Like {props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>
                     </div>
+                }
 
-                )}
                 <Dialog.Root open={open} onOpenChange={setOpen}>
-                    {props.likes === undefined && (
+                    {user?.role === 1  && (
                         <div className="admin-container">
                             <Dialog.Trigger asChild>
                                 <div className="edit">
@@ -78,7 +82,6 @@ export function VacationCard(props: VacationCardProps) {
                             <Tooltip anchorSelect=".delete" place="top" content="Delete" delayHide={1} delayShow={200} />
                         </div>
                     )}
-
                     <Dialog.Portal>
                         <Dialog.Overlay className="dialog-overlay" />
                         <Dialog.Content className="dialog-content">

@@ -6,7 +6,7 @@ import { IVacationModel, VacationModel } from "../3-models/vacation-model";
 class DataService {
 
     public getAllVacation(): Promise<IVacationModel[]> {
-        return VacationModel.find().exec();
+        return VacationModel.find().populate("likes").exec();
     }
 
 

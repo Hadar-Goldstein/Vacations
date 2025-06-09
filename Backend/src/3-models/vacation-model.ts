@@ -1,7 +1,8 @@
-import { Document, Schema, model } from "mongoose";
+import { Document, Schema, Types, model } from "mongoose";
 import { calculate } from "../2-utils/calculate";
 import { app } from "../app";
 import { appConfig } from "../2-utils/app-config";
+import { ILikeModel } from "./like-model";
 
 // 1. Interface representing our model: 
 export interface IVacationModel extends Document {
@@ -12,6 +13,8 @@ export interface IVacationModel extends Document {
     price: Number;
     imageFileName: string;
     imageUrl: string;
+    likes?: Types.DocumentArray<ILikeModel>; // וירטואלי
+    likesCount?: number; // וירטואלי
 }
 
 // 2. Schema describing model rules: 
@@ -76,6 +79,7 @@ export const VacationSchema = new Schema<IVacationModel>({
 }, {
     versionKey: false,
     toJSON: { virtuals: true },
+    toObject: { virtuals: true },
     id: false
 });
 
@@ -88,6 +92,17 @@ VacationSchema.pre("save", function (this: IVacationModel, next) {
 
 VacationSchema.virtual("imageUrl").get(function (this: IVacationModel) {
     return `${appConfig.imageBaseURL}${this.imageFileName}`;
+});
+
+VacationSchema.virtual("likes", {
+    ref: "LikeModel",
+    localField: "_id",
+    foreignField: "vacationId",
+    justOne: false
+});
+
+VacationSchema.virtual("likesCount").get(function () {
+    return this.likes ? this.likes.length : 0;
 });
 
 

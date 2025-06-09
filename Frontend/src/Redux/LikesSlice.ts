@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { LikeObjModel } from "../Models/LikeObjModel";
+import { LikeModel } from "../Models/LikeModel";
 
-export function initLikes(_currentState: LikeObjModel[], action: PayloadAction<LikeObjModel[]>) :LikeObjModel[] {
-    const LikesToInit = action.payload;
-    const newState = LikesToInit; 
-    return newState; 
-}
+// export function initLikes(_currentState: LikeModel[], action: PayloadAction<LikeModel[]>) :LikeModel[] {
+//     const LikesToInit = action.payload;
+//     const newState = LikesToInit; 
+//     return newState; 
+// }
 
 // export function AddLike(currentState: LikeModel[], action: PayloadAction<LikeModel>) :LikeModel[] {
 //     const LikeToAdd = action.payload; 
@@ -25,5 +25,5 @@ export function initLikes(_currentState: LikeObjModel[], action: PayloadAction<L
 export const likeSlice = createSlice({
     name: "likes", 
     initialState: [], 
-    reducers: {initLikes} 
+    reducers: {} 
 });

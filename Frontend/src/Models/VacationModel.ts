@@ -8,4 +8,5 @@ export class VacationModel {
     public imageFileName: string;
     public imageUrl: string;
     public image: File;
+    public likesCount: number;
 }

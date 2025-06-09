@@ -3,7 +3,7 @@ import { LikeObjModel } from "../Models/LikeObjModel";
 import { store } from "../Redux/Store";
 import { appConfig } from "../Utils/AppConfig";
 import { likeSlice } from "../Redux/LikesSlice";
-
+import { LikeModel } from "../Models/LikeModel";
 
 class LikesService {
 
@@ -18,23 +18,21 @@ class LikesService {
     //     return Likes;
     // }
 
-    public async getLikesPerVacation(): Promise<LikeObjModel[]> {
+    // public async getLikesPerVacation(): Promise<LikeModel[]> {
         
-        if (store.getState().likes.length > 0) return store.getState().likes;
-        const response = await axios.get<LikeObjModel[]>(appConfig.likesUrl);
-        const likesPerVacation = response.data;
+    //     if (store.getState().likes.length > 0) return store.getState().likes;
+    //     const response = await axios.get<LikeModel[]>(appConfig.likesUrl);
+    //     const likesPerVacation = response.data;
 
-        
-        const action = likeSlice.actions.initLikes(likesPerVacation);
-        store.dispatch(action);
-        return likesPerVacation;
-    }
+    //     const action = likeSlice.actions.initLikes(likesPerVacation);
+    //     store.dispatch(action);
+    //     return likesPerVacation;
+    // }
 
 
     // public async addLike(Like: LikeModel): Promise<void> {
 
-    //     const headers = { "Content-Type": "multipart/form-data" };
-    //     const response = await axios.post<LikeModel>(appConfig.likesUrl, Like, { headers });
+    //     const response = await axios.post<LikeModel>(appConfig.likesUrl, Like);
     //     const dbLike = response.data;
 
     //     const action = likeSlice.actions.AddLike(dbLike);
