@@ -9,17 +9,12 @@ import { likesService } from "../../../Services/LikesService";
 import { notify } from "../../../Utils/Notify";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
+import { LikeModel } from "../../../Models/LikeModel";
 
 export function Vacations() {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
     const user = useSelector<AppState, UserModel>(store => store.user);
-
-    // function getLikesCount(_id: string): number {
-    //     const likeObj = likesPerVacation.find(obj => obj.vacationId === _id);
-    //     console.log("Vacation ID:", _id, "=> Likes object:", likeObj);
-    //     return likeObj?.likes ?? 0;
-    // }
 
     const navigate = useNavigate();
 
@@ -35,7 +30,6 @@ export function Vacations() {
             fetchData();
         }
     }, [user]);
-
 
     async function deleteVacation(_id: string) {
         try {
@@ -63,6 +57,28 @@ export function Vacations() {
 
     }
 
+    async function addLike(like: LikeModel) {
+        try {
+            await likesService.addLike(like);
+            await dataService.getVacationByIdAndUpdate(like.vacationId);
+            // notify.success("like has been added");
+        }
+        catch (err: any) {
+            notify.error(err);
+        }
+    }
+
+    async function removeLike(like: LikeModel) {
+        try {
+            await likesService.removeLike(like._id);
+            await dataService.getVacationByIdAndUpdate(like.vacationId);
+            // notify.success("like has been removed");
+        }
+        catch (err: any) {
+            notify.error(err);
+        }
+    }
+
     return (
         <div className="Vacations">
             {user?.role === 1 && vacations.map(v => (
@@ -70,7 +86,7 @@ export function Vacations() {
             ))}
 
             {user?.role !== 1 && vacations.map(v => (
-                <VacationCard key={v._id} vacation={v} />
+                <VacationCard key={v._id} vacation={v} like={addLike} unLike={removeLike} />
             ))}
 
         </div>

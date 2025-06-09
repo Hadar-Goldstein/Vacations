@@ -9,6 +9,9 @@ class DataService {
         return VacationModel.find().populate("likes").exec();
     }
 
+    public getVacationById(_id: string): Promise<IVacationModel> {
+        return VacationModel.findById(_id).populate("likes").exec();
+    }
 
     public async addVacation(vacation: IVacationModel): Promise<IVacationModel> {
         const error = vacation.validateSync();
@@ -30,10 +33,10 @@ class DataService {
         if (!dbVacation) throw new ClientError(StatusCode.NotFound, `Vacation ${_id} does not exist.`);
     }
 
-    
-    public async getImageName(_id: string) :Promise<string> {
+
+    public async getImageName(_id: string): Promise<string> {
         const vacation = await VacationModel.findById(_id);
-        if(!vacation) return null;
+        if (!vacation) return null;
         const imageFileName = vacation.imageFileName;
         return imageFileName;
     }
@@ -41,16 +44,16 @@ class DataService {
     public async getRandomImages() {
         const vacations = await VacationModel.find().exec();
         const randoms = [];
-        for(let i = 1; i <= 3; i++ ) {
-            const randomIndex  = Math.floor(Math.random() * vacations.length);
+        for (let i = 1; i <= 3; i++) {
+            const randomIndex = Math.floor(Math.random() * vacations.length);
             const imgUrl = vacations[randomIndex].imageUrl;
             randoms.push(imgUrl);
-            vacations.splice(randomIndex ,1);
+            vacations.splice(randomIndex, 1);
         }
         return randoms;
     }
 
-    }
+}
 
 
 

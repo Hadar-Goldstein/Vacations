@@ -6,18 +6,6 @@ import { appConfig } from "../Utils/AppConfig";
 
 class LikesService {
 
-    // public async getAllLikes(): Promise<LikeModel[]> {
-
-    //     if (store.getState().likes.length > 0) return store.getState().likes;
-    //     const response = await axios.get<LikeModel[]>(appConfig.likesUrl);
-    //     const Likes = response.data;
-
-    //     const action = likeSlice.actions.initLikes(Likes);
-    //     store.dispatch(action);
-    //     return Likes;
-    // }
-
-    
     public async getLikesByUserId(_id: string): Promise<LikeModel[]> {
 
         if (store.getState().likes.length > 0) return store.getState().likes;

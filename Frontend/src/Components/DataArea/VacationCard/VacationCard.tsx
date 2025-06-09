@@ -1,22 +1,23 @@
-import { CalendarCheck, CurrencyDollar, HeartStraight, Info, MapPin, Trash, Pencil } from 'phosphor-react';
-import { VacationModel } from "../../../Models/VacationModel";
-import { calculate } from "../../../Utils/Calculate";
-import "./VacationCard.css";
-import { Tooltip } from 'react-tooltip';
 import * as Dialog from "@radix-ui/react-dialog";
+import { CalendarCheck, CurrencyDollar, HeartStraight, Info, MapPin, Pencil, Trash } from 'phosphor-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { notify } from '../../../Utils/Notify';
 import { useSelector } from 'react-redux';
-import { UserModel } from '../../../Models/UserModel';
-import { AppState, store } from '../../../Redux/Store';
+import { Tooltip } from 'react-tooltip';
 import { LikeModel } from '../../../Models/LikeModel';
+import { UserModel } from '../../../Models/UserModel';
+import { VacationModel } from "../../../Models/VacationModel";
+import { AppState } from '../../../Redux/Store';
+import { calculate } from "../../../Utils/Calculate";
+import { notify } from '../../../Utils/Notify';
+import "./VacationCard.css";
 
 type VacationCardProps = {
     vacation: VacationModel;
-    // likes?: number;
     deleteCard?: (_id: string) => void,
-    editCard?: (vacation: VacationModel) => void
+    editCard?: (vacation: VacationModel) => void,
+    like?: (like: LikeModel) => void,
+    unLike?: (like: LikeModel) => void
 };
 
 export function VacationCard(props: VacationCardProps) {
@@ -27,8 +28,6 @@ export function VacationCard(props: VacationCardProps) {
     function didUserLikeVacation(vacation: VacationModel): boolean {
         return userLikes.some(like => like.vacationId === vacation._id);
     }
-
-
 
     const [open, setOpen] = useState(false);
 
@@ -62,13 +61,33 @@ export function VacationCard(props: VacationCardProps) {
 
     const tomorrow = calculate.getTomorrowDate();
 
+    function getLikeId(vacationId: string): string | undefined {
+        const like = userLikes.find(l => l.vacationId === vacationId);
+        return like?._id;
+    }
+
+    async function unlike() {
+        const like = new LikeModel();
+        like.userId = user._id;
+        like.vacationId = props.vacation._id;
+        like._id= getLikeId(props.vacation._id);
+        props.unLike(like);
+    }
+
+    async function like() {
+        const like = new LikeModel();
+        like.userId = user._id;
+        like.vacationId = props.vacation._id;
+        props.like(like);
+    }
+
     return (
         <div className="Card">
             <div className="ImageContainer">
                 <img src={props.vacation.imageUrl} crossOrigin="anonymous"></img>
 
                 {user?.role === 2 && didUserLikeVacation(props.vacation) &&
-                    <div className="like-badge-isLiked">
+                    <div onClick={unlike} className="like-badge-isLiked">
                         <HeartStraight size={18} />
                         <span>{props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>
                     </div>
@@ -76,14 +95,14 @@ export function VacationCard(props: VacationCardProps) {
 
 
                 {user?.role === 2 && !didUserLikeVacation(props.vacation) && props.vacation.likesCount > 0 &&
-                    <div className="like-badge">
+                    <div onClick={like} className="like-badge">
                         <HeartStraight size={18} />
                         {<span className='isLiked'>{props.vacation.likesCount === 0 ? " " : props.vacation.likesCount}</span>}
                     </div>
                 }
 
                 {user?.role === 2 && !didUserLikeVacation(props.vacation) && props.vacation.likesCount === 0 &&
-                    <div className="like-badge">
+                    <div onClick={like} className="like-badge">
                         <HeartStraight size={18} />
                     </div>
                 }

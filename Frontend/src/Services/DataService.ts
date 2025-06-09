@@ -11,11 +11,21 @@ class DataService {
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
 
-        // Save in global state
         const action = vacationSlice.actions.initVacations(vacations);
         store.dispatch(action);
 
         return vacations;
+    }
+
+    public async getVacationByIdAndUpdate(_id: string): Promise<VacationModel> {
+
+        const response = await axios.get<VacationModel>(appConfig.vacationsUrl + _id);
+        const dbVacation = response.data;
+
+        const action = vacationSlice.actions.updateVacation(dbVacation);
+        store.dispatch(action);
+
+        return dbVacation;
     }
 
     public async getRandomImages(): Promise<string[]> {

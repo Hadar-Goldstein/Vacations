@@ -13,6 +13,7 @@ class DataController {
 
     public constructor() {
         this.router.get("/vacations", securityMiddleware.validateToken, this.getAllVacations);
+        this.router.get("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, this.getVacationById);
         this.router.post("/vacations", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.addVacation);
         this.router.put("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.updateVacation);
         this.router.delete("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.deleteVacation);
@@ -27,6 +28,17 @@ class DataController {
         }
         catch (err: any) { next(err); }
     }
+
+
+    private async getVacationById(request: Request, response: Response, next: NextFunction) {
+        try {
+            const _id = request.params._id;
+            const vacation = await dataService.getVacationById(_id);
+            response.json(vacation);
+        }
+        catch (err: any) { next(err); }
+    }
+
 
     private async addVacation(request: Request, response: Response, next: NextFunction) {
         let imageJustUploaded = false;
@@ -62,7 +74,7 @@ class DataController {
             else {
                 request.body.imageFileName = oldImgName;
             }
-            
+
             request.body._id = request.params._id;
 
             const vacation = new VacationModel(request.body);
