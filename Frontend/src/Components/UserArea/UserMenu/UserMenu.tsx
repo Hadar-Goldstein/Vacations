@@ -1,6 +1,6 @@
 import { User } from 'phosphor-react';
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UserModel } from "../../../Models/UserModel";
 import { AppState } from "../../../Redux/Store";
 import { userService } from "../../../Services/UserService";
@@ -12,12 +12,9 @@ export function UserMenu(): JSX.Element {
 
     const user = useSelector<AppState, UserModel>(store => store.user);
 
-    const navigate = useNavigate();
-
     function logOut() {
         userService.logout();
         notify.success("We Hope To See You Soon.. 🏝️");
-        navigate("/home");
     }
 
 

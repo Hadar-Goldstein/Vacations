@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { UserModel } from "../../../Models/UserModel";
@@ -18,16 +18,24 @@ export function Vacations() {
 
     const navigate = useNavigate();
 
+    const [wasLoggedIn, setWasLoggedIn] = useState(false);
+
     useEffect(() => {
+        if(user) setWasLoggedIn(true);
+        
         async function fetchData() {
             await dataService.getAllVacations();
             await likesService.getLikesByUserId(user._id);
         }
 
-        if (!user) {
-            navigate("/unauthorized");
-        } else {
-            fetchData();
+        if (user?.role === 1 || user?.role === 2) fetchData();
+        else {
+            if (wasLoggedIn) {
+                navigate("/home");
+            } else {
+                // navigate("/login");
+                navigate("/unauthorized");
+            }
         }
     }, [user]);
 

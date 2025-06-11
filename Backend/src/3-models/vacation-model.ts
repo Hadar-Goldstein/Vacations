@@ -14,7 +14,7 @@ export interface IVacationModel extends Document {
     imageFileName: string;
     imageUrl: string;
     likes?: Types.DocumentArray<ILikeModel>; // וירטואלי
-    likesCount?: number; // וירטואלי
+    likesCount?: number; 
 }
 
 // 2. Schema describing model rules: 

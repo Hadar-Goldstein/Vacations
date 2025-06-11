@@ -11,6 +11,14 @@ class UserService {
         return UserModel.find().exec();
     }
 
+    public async emailIsTaken(email: string) :Promise<boolean>{
+        const existingUser = await UserModel.findOne({ email: email });
+        if (existingUser) {
+            return true;
+        }
+        return false;
+    }
+
 
     public async register(user: IUserModel): Promise<string> {
         const error = user.validateSync();

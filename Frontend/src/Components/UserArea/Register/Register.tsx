@@ -13,6 +13,11 @@ export function Register(): JSX.Element {
 
     async function send(user: UserModel) {
         try {
+            const isTaken = await userService.emailIsTaken(user.email);
+            if(isTaken) {
+                notify.error(`Email ${user.email} is already registered.`);
+                return;
+            }
             await userService.register(user);
             notify.success(`Welcome, ${user.firstName} - Lets pick your next dream ✈️🏖️`);
             navigate("/vacations");
@@ -44,7 +49,7 @@ export function Register(): JSX.Element {
                 </div>
                 <div className="rg-form-group">
                     <label>Password:</label>
-                    <input type="Password" {...register("password")} minLength={4} maxLength={100}/>
+                    <input type="Password" {...register("password")} required minLength={4} maxLength={100}/>
                 </div>
 
                 <div className="rg-button-container">

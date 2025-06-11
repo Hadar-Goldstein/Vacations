@@ -1,10 +1,10 @@
-import { jwtDecode } from "jwt-decode";
-import { UserModel } from "../Models/UserModel";
-import { userSlice } from "../Redux/UserSlice";
-import { store } from "../Redux/Store";
 import axios from "axios";
-import { appConfig } from "../Utils/AppConfig";
+import { jwtDecode } from "jwt-decode";
 import { CredentialsModel } from "../Models/CredentialsModel";
+import { UserModel } from "../Models/UserModel";
+import { store } from "../Redux/Store";
+import { userSlice } from "../Redux/UserSlice";
+import { appConfig } from "../Utils/AppConfig";
 
 class UserService {
     
@@ -16,6 +16,11 @@ class UserService {
         const dbUser = userContainer.user;
         const action = userSlice.actions.initUser(dbUser);
         store.dispatch(action);
+    }
+
+    public async emailIsTaken(email: string): Promise<boolean> {
+         const response = await axios.get<boolean>(appConfig.emailValidation + email);
+         return response.data;
     }
 
     public async register(user: UserModel): Promise<void> {

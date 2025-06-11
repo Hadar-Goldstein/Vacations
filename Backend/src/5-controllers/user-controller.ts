@@ -13,6 +13,7 @@ class UserController {
         this.router.get("/users", this.getAllUsers);
         this.router.post("/register", this.register);
         this.router.post("/login", this.login);
+        this.router.get("/email-validation/:email", this.emailIsTaken);
 
     }
 
@@ -20,6 +21,15 @@ class UserController {
         try {
             const users = await userService.getAllUsers();
             response.json(users);
+        }
+        catch (err: any) { next(err); }
+    }
+
+    private async emailIsTaken(request: Request, response: Response, next: NextFunction) {
+        try {
+            const email = request.params.email;
+            const emailIsTaken = await userService.emailIsTaken(email);
+            response.json(emailIsTaken);
         }
         catch (err: any) { next(err); }
     }
