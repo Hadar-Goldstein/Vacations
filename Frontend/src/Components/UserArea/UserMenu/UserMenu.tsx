@@ -21,7 +21,7 @@ export function UserMenu(): JSX.Element {
     return (
         <div className="UserMenu">
             {!user && <div>
-                <span>Hello Guest | </span>
+                <span>Hello Traveler | </span>
                 <NavLink className="user-links" to="/login">Login</NavLink>
                 <span> | </span>
                 <NavLink className="user-links" to="/register">Register</NavLink>
