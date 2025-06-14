@@ -9,17 +9,6 @@ class Interceptor {
             requestConfig.headers.Authorization = "Bearer " + token;
             return requestConfig;
         });
-
-        axios.interceptors.response.use(
-            response => response,
-            err => {
-                if (err.response?.status === 401) {
-                    userService.logout();
-                    notify.error("Session has expired. Please login.")
-                }
-                return Promise.reject(err);
-            }
-        );
     }
 }
 

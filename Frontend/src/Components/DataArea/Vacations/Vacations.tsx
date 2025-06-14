@@ -10,6 +10,7 @@ import { likesService } from "../../../Services/LikesService";
 import { notify } from "../../../Utils/Notify";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
+import { FilterMenu } from "../FilterMenu/FilterMenu";
 
 export function Vacations() {
 
@@ -35,7 +36,6 @@ export function Vacations() {
 
     async function deleteVacation(_id: string) {
         try {
-
             const sure = confirm("Are you sure?");
             if (!sure) return;
             await dataService.deleteVacation(_id);
@@ -87,9 +87,22 @@ export function Vacations() {
                 <VacationCard key={v._id} vacation={v} deleteCard={deleteVacation} editCard={editVacation} />
             ))}
 
-            {user?.role !== 1 && vacations.map(v => (
-                <VacationCard key={v._id} vacation={v} like={addLike} unLike={removeLike} />
-            ))}
+            {user?.role !== 1 && (
+                <div className="vacations-user-view">
+                    <FilterMenu />
+
+                    <div className="vacations-list">
+                        {vacations.map(v => (
+                            <VacationCard
+                                key={v._id}
+                                vacation={v}
+                                like={addLike}
+                                unLike={removeLike}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
 
         </div>
     );
