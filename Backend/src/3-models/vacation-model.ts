@@ -13,7 +13,7 @@ export interface IVacationModel extends Document {
     price: Number;
     imageFileName: string;
     imageUrl: string;
-    likes?: Types.DocumentArray<ILikeModel>; // וירטואלי
+    likes?: Types.DocumentArray<ILikeModel>; 
     likesCount?: number; 
 }
 

@@ -13,6 +13,16 @@ class DataService {
         return VacationModel.findById(_id).populate("likes").exec();
     }
 
+    public getActiveVacations(): Promise<IVacationModel[]> {
+        const now = new Date();
+        return VacationModel.find({ startDate: { $lte: now }, endDate: { $gte: now } }).populate("likes").exec();
+    }
+
+    public getFutureVacations(): Promise<IVacationModel[]> {
+        const now = new Date();
+        return VacationModel.find({ startDate: { $gte: now } }).populate("likes").exec();
+    }
+
     public async addVacation(vacation: IVacationModel): Promise<IVacationModel> {
         const error = vacation.validateSync();
         if (error) throw new ClientError(StatusCode.BadRequest, error.message);

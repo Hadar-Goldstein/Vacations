@@ -13,6 +13,8 @@ class DataController {
 
     public constructor() {
         this.router.get("/vacations", securityMiddleware.validateToken, this.getAllVacations);
+        this.router.get("/vacations-active", securityMiddleware.validateToken, this.getActiveVacations);
+        this.router.get("/vacations-future", securityMiddleware.validateToken, this.getFutureVacations);
         this.router.get("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, this.getVacationById);
         this.router.post("/vacations", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.addVacation);
         this.router.put("/vacations/:_id([0-9a-f]{24})", securityMiddleware.validateToken, securityMiddleware.validateAdmin, this.updateVacation);
@@ -35,6 +37,22 @@ class DataController {
             const _id = request.params._id;
             const vacation = await dataService.getVacationById(_id);
             response.json(vacation);
+        }
+        catch (err: any) { next(err); }
+    }
+
+    private async getActiveVacations(request: Request, response: Response, next: NextFunction) {
+        try {
+            const vacations = await dataService.getActiveVacations();
+            response.json(vacations);
+        }
+        catch (err: any) { next(err); }
+    }
+
+    private async getFutureVacations(request: Request, response: Response, next: NextFunction) {
+        try {
+            const vacations = await dataService.getFutureVacations();
+            response.json(vacations);
         }
         catch (err: any) { next(err); }
     }

@@ -5,8 +5,10 @@ import { vacationSlice } from "../Redux/VacationSlice";
 import { appConfig } from "../Utils/AppConfig";
 
 class DataService {
-    public async getAllVacations(): Promise<VacationModel[]> {
-        if (store.getState().vacations.length > 0) return store.getState().vacations;
+    public async getAllVacations(replaceStore: boolean = false): Promise<VacationModel[]> {
+        if(!replaceStore){
+            if (store.getState().vacations.length > 0) return store.getState().vacations;
+        }
 
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
@@ -16,6 +18,23 @@ class DataService {
 
         return vacations;
     }
+
+    public async getActiveVacations(): Promise<VacationModel[]> {
+        const response = await axios.get<VacationModel[]>(appConfig.activeVacationsUrl);
+        const vacations = response.data;
+        const action = vacationSlice.actions.initVacations(vacations);
+        store.dispatch(action);
+        return vacations;
+    }
+
+    public async getFutureVacations(): Promise<VacationModel[]> {
+        const response = await axios.get<VacationModel[]>(appConfig.futureVacationsUrl);
+        const vacations = response.data;
+        const action = vacationSlice.actions.initVacations(vacations);
+        store.dispatch(action);
+        return vacations;
+    }
+
 
     public async getVacationByIdAndUpdate(_id: string): Promise<VacationModel> {
 
@@ -58,9 +77,7 @@ class DataService {
     }
 
     public async updateVacation(vacation: VacationModel): Promise<void> {
-        console.log("Vacation ID:", vacation._id);
         const headers = { "Content-Type": "multipart/form-data" };
-        console.log(appConfig.vacationsUrl + vacation._id, vacation, { headers });
         const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation._id, vacation, { headers });
         const dbVacation = response.data;
         const action = vacationSlice.actions.updateVacation(dbVacation);

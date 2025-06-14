@@ -1,13 +1,17 @@
 import { NavLink } from "react-router-dom";
 import "./FilterMenu.css";
 
-export function FilterMenu(): JSX.Element {
+type VacationFilterProp = {
+    filter: (filter: string)=> void;
+}
+export function FilterMenu(props: VacationFilterProp): JSX.Element {
+
     return (
         <div className="FilterMenu">
-            <NavLink to="/" className={"FilterMenuLink"}>Liked</NavLink>
-            <NavLink to="/" className={"FilterMenuLink"}>Active Now</NavLink>
-            <NavLink to="/" className={"FilterMenuLink"}>Future</NavLink>
-            <NavLink to="/" className={"FilterMenuLink"}>Display All</NavLink>
+            <NavLink to="#" className={"FilterMenuLink"}>Liked</NavLink>
+            <NavLink to="#" onClick={()=>{props.filter("active")}} className={"FilterMenuLink"}>Active Now</NavLink>
+            <NavLink to="#" onClick={()=>{props.filter("future")}} className={"FilterMenuLink"}>Future</NavLink>
+            <NavLink to="#" onClick={()=>{props.filter("all")}} className={"FilterMenuLink"}>Display All</NavLink>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LikeModel } from "../../../Models/LikeModel";
@@ -11,6 +11,7 @@ import { notify } from "../../../Utils/Notify";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
 import { FilterMenu } from "../FilterMenu/FilterMenu";
+import { data } from "framer-motion/m";
 
 export function Vacations() {
 
@@ -81,6 +82,27 @@ export function Vacations() {
         }
     }
 
+    async function displayFilter(filter: string) {
+        switch (filter) {
+            case "active":
+                await dataService.getActiveVacations();
+                break;
+
+            case "future":
+                await dataService.getFutureVacations();
+                break;
+
+            case "liked":
+                await dataService.getFutureVacations();
+                break;
+
+            case "all":
+                await dataService.getAllVacations(true);
+                break;
+        }
+
+    }
+
     return (
         <div className="Vacations">
             {user?.role === 1 && vacations.map(v => (
@@ -89,7 +111,7 @@ export function Vacations() {
 
             {user?.role !== 1 && (
                 <div className="vacations-user-view">
-                    <FilterMenu />
+                    <FilterMenu  filter={displayFilter}/>
 
                     <div className="vacations-list">
                         {vacations.map(v => (

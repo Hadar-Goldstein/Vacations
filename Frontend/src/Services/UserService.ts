@@ -41,7 +41,6 @@ class UserService {
         const token = response.data;
         const userContainer = jwtDecode<{ user: UserModel }>(token);
         const dbUser = userContainer.user;
-        console.log(dbUser);
         const action = userSlice.actions.initUser(dbUser);
         store.dispatch(action);
         localStorage.setItem("token", token);
