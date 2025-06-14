@@ -8,7 +8,7 @@ class Cyber {
         delete user.password;
 
         const payload = { user };
-        const options: SignOptions = {expiresIn: "5s"};
+        const options: SignOptions = {expiresIn: "3h"};
 
         // Token
         const token = jwt.sign(payload, "v!c@a#t$i%o^n&s!@#$%^&*()", options);

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { LikeModel } from "../../../Models/LikeModel";
 import { UserModel } from "../../../Models/UserModel";
 import { VacationModel } from "../../../Models/VacationModel";
 import { AppState } from "../../../Redux/Store";
@@ -9,7 +10,6 @@ import { likesService } from "../../../Services/LikesService";
 import { notify } from "../../../Utils/Notify";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
-import { LikeModel } from "../../../Models/LikeModel";
 
 export function Vacations() {
 
@@ -18,20 +18,19 @@ export function Vacations() {
 
     const navigate = useNavigate();
 
-    // const [wasLoggedIn, setWasLoggedIn] = useState(false);
-
     async function fetchData() {
-        await dataService.getAllVacations();
-        await likesService.getLikesByUserId(user._id);
+        try {
+            await dataService.getAllVacations();
+            await likesService.getLikesByUserId(user._id);
+        }
+        catch (err: any) {
+            notify.error(err.message);
+        }
     }
 
     useEffect(() => {
-        if (user) {
-            fetchData();
-        }
-        else {
-            navigate("/unauthorized");
-        }
+        if (user) fetchData();
+        else navigate("/unauthorized");
     }, [user]);
 
     async function deleteVacation(_id: string) {
