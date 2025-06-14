@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LikeModel } from "../../../Models/LikeModel";
@@ -8,15 +8,15 @@ import { AppState } from "../../../Redux/Store";
 import { dataService } from "../../../Services/DataService";
 import { likesService } from "../../../Services/LikesService";
 import { notify } from "../../../Utils/Notify";
+import { FilterMenu } from "../FilterMenu/FilterMenu";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
-import { FilterMenu } from "../FilterMenu/FilterMenu";
-import { data } from "framer-motion/m";
 
 export function Vacations() {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
     const user = useSelector<AppState, UserModel>(store => store.user);
+    const likes = useSelector<AppState, LikeModel[]>(store =>store.likes);
 
     const navigate = useNavigate();
 
@@ -93,7 +93,8 @@ export function Vacations() {
                 break;
 
             case "liked":
-                await dataService.getFutureVacations();
+                dataService.getAllVacations(true);
+                dataService.getLikedVacations(likes);
                 break;
 
             case "all":

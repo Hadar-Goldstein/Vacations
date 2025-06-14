@@ -3,10 +3,11 @@ import { VacationModel } from "../Models/VacationModel";
 import { store } from "../Redux/Store";
 import { vacationSlice } from "../Redux/VacationSlice";
 import { appConfig } from "../Utils/AppConfig";
+import { LikeModel } from "../Models/LikeModel";
 
 class DataService {
     public async getAllVacations(replaceStore: boolean = false): Promise<VacationModel[]> {
-        if(!replaceStore){
+        if (!replaceStore) {
             if (store.getState().vacations.length > 0) return store.getState().vacations;
         }
 
@@ -46,6 +47,16 @@ class DataService {
 
         return dbVacation;
     }
+
+    public async getLikedVacations(userLikes: LikeModel[]): Promise<void> {
+        const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
+        const vacations = response.data;
+        const likedIds = new Set(userLikes.map(like => like.vacationId));
+        const likedVacations = vacations.filter(v => likedIds.has(v._id));
+        const action = vacationSlice.actions.initVacations(likedVacations);
+        store.dispatch(action);
+    }
+
 
     public async getRandomImages(): Promise<string[]> {
 
