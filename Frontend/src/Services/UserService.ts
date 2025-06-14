@@ -5,9 +5,10 @@ import { UserModel } from "../Models/UserModel";
 import { store } from "../Redux/Store";
 import { userSlice } from "../Redux/UserSlice";
 import { appConfig } from "../Utils/AppConfig";
+import { tokenHandle } from "../Utils/TokenHandle";
 
 class UserService {
-    
+
     constructor() {
         const token = localStorage.getItem("token");
         if (!token) return;
@@ -19,8 +20,8 @@ class UserService {
     }
 
     public async emailIsTaken(email: string): Promise<boolean> {
-         const response = await axios.get<boolean>(appConfig.emailValidation + email);
-         return response.data;
+        const response = await axios.get<boolean>(appConfig.emailValidation + email);
+        return response.data;
     }
 
     public async register(user: UserModel): Promise<void> {
@@ -32,6 +33,7 @@ class UserService {
         store.dispatch(action);
 
         localStorage.setItem("token", token);
+        tokenHandle.scheduleTokenExpirationCheck(token);
     }
 
     public async login(credentials: CredentialsModel): Promise<void> {
@@ -43,12 +45,14 @@ class UserService {
         const action = userSlice.actions.initUser(dbUser);
         store.dispatch(action);
         localStorage.setItem("token", token);
+        tokenHandle.scheduleTokenExpirationCheck(token);
     }
 
     public logout(): void {
         const action = userSlice.actions.logoutUser();
         store.dispatch(action);
         localStorage.removeItem("token");
+        tokenHandle.cancelExpirationCheck();
     }
 }
 

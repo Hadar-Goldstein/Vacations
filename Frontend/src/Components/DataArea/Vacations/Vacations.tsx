@@ -18,24 +18,19 @@ export function Vacations() {
 
     const navigate = useNavigate();
 
-    const [wasLoggedIn, setWasLoggedIn] = useState(false);
+    // const [wasLoggedIn, setWasLoggedIn] = useState(false);
+
+    async function fetchData() {
+        await dataService.getAllVacations();
+        await likesService.getLikesByUserId(user._id);
+    }
 
     useEffect(() => {
-        if(user) setWasLoggedIn(true);
-        
-        async function fetchData() {
-            await dataService.getAllVacations();
-            await likesService.getLikesByUserId(user._id);
+        if (user) {
+            fetchData();
         }
-
-        if (user?.role === 1 || user?.role === 2) fetchData();
         else {
-            if (wasLoggedIn) {
-                navigate("/home");
-            } else {
-                // navigate("/login");
-                navigate("/unauthorized");
-            }
+            navigate("/unauthorized");
         }
     }, [user]);
 

@@ -1,5 +1,6 @@
 import { LikeObjModel } from "../Models/LikeObjModel";
 
+
 class Calculate {
 
     public async getLikesCount(_id: string, likes: LikeObjModel[]): Promise<number> {
@@ -44,7 +45,6 @@ class Calculate {
         const localDate = new Date(date.getTime() - offset * 60 * 1000);
         return localDate.toISOString().split("T")[0];
     }
-
 }
 
 export const calculate = new Calculate();
