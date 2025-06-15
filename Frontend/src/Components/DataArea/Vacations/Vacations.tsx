@@ -85,6 +85,7 @@ export function Vacations() {
     }
 
     async function displayFilter(filter: string) {
+        setPage(1); 
         switch (filter) {
             case "active":
                 await dataService.getActiveVacations();
@@ -95,8 +96,8 @@ export function Vacations() {
                 break;
 
             case "liked":
-                dataService.getAllVacations(true);
-                dataService.getLikedVacations(likes);
+                await dataService.getAllVacations(true);
+                await dataService.getLikedVacations(likes);
                 break;
 
             case "all":
