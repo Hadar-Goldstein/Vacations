@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LikeModel } from "../../../Models/LikeModel";
@@ -11,13 +11,15 @@ import { notify } from "../../../Utils/Notify";
 import { FilterMenu } from "../FilterMenu/FilterMenu";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
+import { Pagination } from "@mui/material";
+
+const ITEMS_PER_PAGE = 9;
 
 export function Vacations() {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
     const user = useSelector<AppState, UserModel>(store => store.user);
-    const likes = useSelector<AppState, LikeModel[]>(store =>store.likes);
-
+    const likes = useSelector<AppState, LikeModel[]>(store => store.likes);
     const navigate = useNavigate();
 
     async function fetchData() {
@@ -101,21 +103,27 @@ export function Vacations() {
                 await dataService.getAllVacations(true);
                 break;
         }
-
     }
+
+    // Pagination:
+    const [page, setPage] = useState<number>(1);
+    const startIndex = (page - 1) * ITEMS_PER_PAGE;
+    const currentVacations = vacations.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    const totalPages = Math.ceil(vacations.length / ITEMS_PER_PAGE);
+
 
     return (
         <div className="Vacations">
-            {user?.role === 1 && <div className="vacations-list-admin">{vacations.map(v => (
+            {user?.role === 1 && <div className="vacations-list-admin">{currentVacations.map(v => (
                 <VacationCard key={v._id} vacation={v} deleteCard={deleteVacation} editCard={editVacation} />
             ))} </div>}
 
             {user?.role !== 1 && (
                 <div className="vacations-user-view">
-                    <FilterMenu  filter={displayFilter}/>
+                    <FilterMenu filter={displayFilter} />
 
                     <div className="vacations-list">
-                        {vacations.map(v => (
+                        {currentVacations.map(v => (
                             <VacationCard
                                 key={v._id}
                                 vacation={v}
@@ -127,6 +135,21 @@ export function Vacations() {
                 </div>
             )}
 
+            <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(e, val) => setPage(val)}
+                sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: 2,
+                    '& .MuiPaginationItem-root': {
+                        minWidth: 24,  
+                        height: 24, 
+                        fontSize: '0.75rem',
+                        padding: 0,
+                        margin: '0 4px',
+                        width: '24px !important'
+                    }
+                }}
+            />
         </div>
     );
 }
