@@ -4,11 +4,21 @@ import { store } from "../Redux/Store";
 import { vacationSlice } from "../Redux/VacationSlice";
 import { appConfig } from "../Utils/AppConfig";
 import { LikeModel } from "../Models/LikeModel";
+import { tokenHandle } from "../Utils/TokenHandle";
+import { userService } from "./UserService";
+import { notify } from "../Utils/Notify";
 
 class DataService {
     public async getAllVacations(replaceStore: boolean = false): Promise<VacationModel[]> {
         if (!replaceStore) {
             if (store.getState().vacations.length > 0) return store.getState().vacations;
+        }
+
+        const token = localStorage.getItem("token");
+        if (tokenHandle.isTokenExpired(token)) {
+            userService.logout();
+            notify.error("Session expired. Please login again.");
+            return;
         }
 
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);

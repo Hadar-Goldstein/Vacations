@@ -106,9 +106,9 @@ export function Vacations() {
 
     return (
         <div className="Vacations">
-            {user?.role === 1 && vacations.map(v => (
+            {user?.role === 1 && <div className="vacations-list-admin">{vacations.map(v => (
                 <VacationCard key={v._id} vacation={v} deleteCard={deleteVacation} editCard={editVacation} />
-            ))}
+            ))} </div>}
 
             {user?.role !== 1 && (
                 <div className="vacations-user-view">
