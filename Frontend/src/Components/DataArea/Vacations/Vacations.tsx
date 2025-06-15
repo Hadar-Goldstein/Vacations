@@ -111,6 +111,13 @@ export function Vacations() {
     const currentVacations = vacations.slice(startIndex, startIndex + ITEMS_PER_PAGE);
     const totalPages = Math.ceil(vacations.length / ITEMS_PER_PAGE);
 
+    useEffect(() => {
+        const layoutElement = document.querySelector(".Layout");
+        layoutElement?.scrollTo({ top: 0, behavior: "smooth" });
+    }, [page]);
+
+
+
 
     return (
         <div className="Vacations">
@@ -135,14 +142,14 @@ export function Vacations() {
                 </div>
             )}
 
-            <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(e, val) => setPage(val)}
+            <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(_e, val) => setPage(val)}
                 sx={{
                     display: "flex",
                     justifyContent: "center",
                     marginBottom: 2,
                     '& .MuiPaginationItem-root': {
-                        minWidth: 24,  
-                        height: 24, 
+                        minWidth: 24,
+                        height: 24,
                         fontSize: '0.75rem',
                         padding: 0,
                         margin: '0 4px',
