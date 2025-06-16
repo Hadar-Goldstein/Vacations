@@ -7,6 +7,7 @@ import { Login } from "../../UserArea/Login/Login";
 import { Register } from "../../UserArea/Register/Register";
 import { Page404 } from "../Page404/Page404";
 import "./Routing.css";
+import { Reports } from "../../ReportsArea/Reports/Reports";
 
 export function Routing() {
 
@@ -20,6 +21,7 @@ export function Routing() {
                 <Route path="/vacations" element={<Vacations />} />
                 
                 <Route path="/add-vacation" element={<AddVacation />} />
+                <Route path="/reports" element={<Reports />} />
 
                 <Route path="/register" element={<Register />} />
 

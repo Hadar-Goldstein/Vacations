@@ -19,6 +19,7 @@ export function Menu() {
             <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
             <NavLink to="/vacations" className={"MenuLink"}>Vacations</NavLink>   
             {user?.role === 1 && <NavLink to="/add-vacation" className={"MenuLink"}>Add Vacation</NavLink>}               
+            {user?.role === 1 && <NavLink to="/reports" className={"MenuLink"}>Reports</NavLink>}               
             </div>
 
             <div className="user-menu-container"><UserMenu></UserMenu></div>

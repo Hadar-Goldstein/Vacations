@@ -1,0 +1,69 @@
+import { useSelector } from "react-redux";
+import "./Reports.css";
+import { AppState } from "../../../Redux/Store";
+import { VacationModel } from "../../../Models/VacationModel";
+import { useEffect } from "react";
+import { notify } from "../../../Utils/Notify";
+import { dataService } from "../../../Services/DataService";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
+
+export function Reports(): JSX.Element {
+
+    const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
+
+    async function fetchData() {
+        try {
+            await dataService.getAllVacations();
+        }
+        catch (err: any) {
+            notify.error(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const splitText = (text: string): string => {
+        return text.split(" ").join("\n");
+    };
+
+
+    const data = vacations.map(v => ({ x: splitText(v.destination), y: v.likesCount }));
+
+    const chartWidth = Math.max(800, vacations.length * 80); // למשל 80 פיקסל לכל עמודה
+
+
+
+    return (
+        <div className="Reports">
+            <div className="reports-scroll">
+                <h2 className="reports-title">Vacations Report</h2>
+                <div style={{ minWidth: chartWidth }} >
+                    <VictoryChart width={chartWidth} domainPadding={{ x: 100 }} padding={{ top: 50, right: 40, bottom: 60, left: 60 }} >
+                        <VictoryAxis
+                            style={{
+                                tickLabels: {
+                                    angle: 0,
+                                    fontSize: 12,
+                                    padding: 10,
+                                    lineHeight: 1.5
+                                }
+                            }}
+                        />
+                        <VictoryAxis dependentAxis tickFormat={(t) => Number.isInteger(t) ? t : null} />
+                        <VictoryBar data={data} style={{ data: { fill: "#e88" } }} labels={({ datum }) => `${datum.x.replace(/\n/g, " ")}\n${datum.y} Likes`}
+
+                            labelComponent={<VictoryTooltip
+                                flyoutStyle={{ fill: "white", stroke: "#e88" }}
+                                style={{ fontSize: 12, fill: "#444" }}
+                                cornerRadius={5}
+                                pointerLength={10}
+                            />} />
+                    </VictoryChart>
+                </div>
+            </div>
+        </div>
+
+    );
+}

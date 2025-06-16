@@ -1,0 +1,19 @@
+.Reports {
+    margin-top: 100px;
+    box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+}
+
+.reports-title {
+    font-family: 'CocoGothic';
+    white-space: pre;
+    font-size: 20px;
+}
+
+.reports-scroll {
+    max-width: 800px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px;
+}
