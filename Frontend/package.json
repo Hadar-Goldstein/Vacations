@@ -24,6 +24,7 @@
     "notyf": "^3.10.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.3.1",
+    "react-csv": "^2.2.2",
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.54.2",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
+    "@types/react-csv": "^1.1.10",
     "@types/react-dom": "^18.3.5",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-redux": "^7.1.34",

@@ -2,12 +2,12 @@
     margin-top: 100px;
     box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
     border-radius: 10px;
+    position: relative;
 
 }
 
 .reports-title {
     font-family: 'CocoGothic';
-    white-space: pre;
     font-size: 20px;
 }
 
@@ -16,4 +16,23 @@
     overflow-x: auto;
     overflow-y: hidden;
     padding: 20px;
+}
+
+.csv-button {
+    position: absolute;
+    font-family: 'CocoGothic';
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    background-color: #e88;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.csv-button:hover {
+    background-color: #c66;
 }

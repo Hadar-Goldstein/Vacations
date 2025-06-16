@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { notify } from "../../../Utils/Notify";
 import { dataService } from "../../../Services/DataService";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
+import { CSVLink } from "react-csv";
 
 export function Reports(): JSX.Element {
 
@@ -30,13 +31,22 @@ export function Reports(): JSX.Element {
 
 
     const data = vacations.map(v => ({ x: splitText(v.destination), y: v.likesCount }));
+    const chartWidth = Math.max(800, vacations.length * 80); 
 
-    const chartWidth = Math.max(800, vacations.length * 80); // למשל 80 פיקסל לכל עמודה
+    const headers = [
+        { label: "Destination", key: "destination" },
+        { label: "Likes", key: "likesCount" }
+    ];
 
+    const csvData = vacations.map(v => ({
+        destination: v.destination,
+        likesCount: v.likesCount
+    }));
 
 
     return (
         <div className="Reports">
+            <CSVLink data={csvData} headers={headers} filename="vacations_report.csv" className="csv-button">Export CSV</CSVLink>
             <div className="reports-scroll">
                 <h2 className="reports-title">Vacations Report</h2>
                 <div style={{ minWidth: chartWidth }} >
