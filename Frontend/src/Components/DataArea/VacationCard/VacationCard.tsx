@@ -59,7 +59,7 @@ export function VacationCard(props: VacationCardProps) {
         props.deleteCard(props.vacation._id);
     }
 
-    const tomorrow = calculate.getTomorrowDate();
+    // const tomorrow = calculate.getTomorrowDate();
 
     function getLikeId(vacationId: string): string | undefined {
         const like = userLikes.find(l => l.vacationId === vacationId);
@@ -134,9 +134,9 @@ export function VacationCard(props: VacationCardProps) {
                                     <label>Destination </label>
                                     <input type="text" {...register("destination")} required minLength={2} maxLength={50} />
                                     <label>Start Date </label>
-                                    <input type="date" {...register("startDate")} required min={tomorrow} />
+                                    <input type="date" {...register("startDate")} required />
                                     <label>End Date </label>
-                                    <input type="date" {...register("endDate")} required min={tomorrow} />
+                                    <input type="date" {...register("endDate")} required />
                                     <label>Description </label>
                                     <textarea rows={4} className="dialog-textarea" {...register("description")} required minLength={50} maxLength={450} />
                                     <label>Price </label>

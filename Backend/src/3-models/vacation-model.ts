@@ -13,8 +13,8 @@ export interface IVacationModel extends Document {
     price: Number;
     imageFileName: string;
     imageUrl: string;
-    likes?: Types.DocumentArray<ILikeModel>; 
-    likesCount?: number; 
+    likes?: Types.DocumentArray<ILikeModel>;
+    likesCount?: number;
 }
 
 // 2. Schema describing model rules: 
@@ -33,18 +33,28 @@ export const VacationSchema = new Schema<IVacationModel>({
         maxlength: [450, "Description too long"],
         trim: true
     },
+    // startDate: {
+    //     type: Date,
+    //     required: [true, "Missing start date."],
+    //     validate: [
+    //         {
+    //             validator: (value: Date) => value instanceof Date && !isNaN(value.getTime()),
+    //             message: "Invalid start date."
+    //         },
+    //         {
+    //             validator: (value: Date) => value >= new Date(),
+    //             message: "Start date cannot be in the past."
+    //         }],
+    //     trim: true
+    // },
     startDate: {
         type: Date,
         required: [true, "Missing start date."],
-        validate: [
-            {
-                validator: (value: Date) => value instanceof Date && !isNaN(value.getTime()),
-                message: "Invalid start date."
-            },
-            {
-                validator: (value: Date) => value >= new Date(),
-                message: "Start date cannot be in the past."
-            }],
+        validate:
+        {
+            validator: (value: Date) => value instanceof Date && !isNaN(value.getTime()),
+            message: "Invalid start date."
+        },
         trim: true
     },
     endDate: {
