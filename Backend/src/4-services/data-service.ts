@@ -6,7 +6,7 @@ import { IVacationModel, VacationModel } from "../3-models/vacation-model";
 class DataService {
 
     public getAllVacation(): Promise<IVacationModel[]> {
-        return VacationModel.find().populate("likes").exec();
+        return VacationModel.find().populate("likes").sort({startDate: 1}).exec();
     }
 
     public getVacationById(_id: string): Promise<IVacationModel> {
@@ -15,12 +15,12 @@ class DataService {
 
     public getActiveVacations(): Promise<IVacationModel[]> {
         const now = new Date();
-        return VacationModel.find({ startDate: { $lte: now }, endDate: { $gte: now } }).populate("likes").exec();
+        return VacationModel.find({ startDate: { $lte: now }, endDate: { $gte: now } }).populate("likes").sort({startDate: 1}).exec();
     }
 
     public getFutureVacations(): Promise<IVacationModel[]> {
         const now = new Date();
-        return VacationModel.find({ startDate: { $gte: now } }).populate("likes").exec();
+        return VacationModel.find({ startDate: { $gte: now } }).populate("likes").sort({startDate: 1}).exec();
     }
 
     public async addVacation(vacation: IVacationModel): Promise<IVacationModel> {

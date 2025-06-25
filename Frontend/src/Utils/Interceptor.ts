@@ -1,6 +1,4 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
-import { userService } from "../Services/UserService";
-import { notify } from "./Notify";
 
 class Interceptor {
     public create(): void {

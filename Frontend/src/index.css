@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -8,24 +10,86 @@ html, body, #root {
 
 /* Global scrollbar styles */
 ::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.35);
-  border-radius: 20px;
-  backdrop-filter: blur(6px);
-  border: 2px solid transparent;
-  border-bottom: none;
-  border-top: none;
-  background-clip: content-box;
-  
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    border: 2px solid transparent;
+    border-bottom: none;
+    border-top: none;
+    background-clip: content-box;
+
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color:  rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Confirm Modal */
+
+.scaled-alert {
+    transform: scale(0.80);
+}
+
+.no-animation {
+    animation: none !important;
+}
+
+.my-title {
+    color: #333;
+    font-family: 'Catchy-mager';
+    font-size: 40px;
+}
+
+.my-text {
+    color: #555;
+    font-size: 20px;
+}
+
+.my-confirm-button {
+    background-color: #623e2a;
+    color: #ffffff;
+    padding: 10px 25px;
+    border: 1px solid #623e2a;
+    font-size: 18px;
+    font-family: 'CocoGothic';
+}
+
+.my-cancel-button {
+    background-color: #ffffff;
+    color: #623e2a;
+    padding: 10px 25px;
+    border: 1px solid #623e2a;
+    font-size: 18px;
+    font-family: 'CocoGothic';
+}
+
+.my-icon {
+    color: #f39c12;
+}
+
+.my-confirm-button:hover,
+.my-cancel-button:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.my-confirm-button:hover {
+    background-color: #623e2a !important;
+    color: white !important;
+}
+
+.my-cancel-button:hover {
+    background-color: #ffffff !important;
+    color: #623e2a !important;
 }

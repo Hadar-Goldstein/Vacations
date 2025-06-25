@@ -12,6 +12,7 @@ import { FilterMenu } from "../FilterMenu/FilterMenu";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
 import { Pagination } from "@mui/material";
+import { confirm } from "../../../Utils/Confirm";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -39,7 +40,7 @@ export function Vacations() {
 
     async function deleteVacation(_id: string) {
         try {
-            const sure = confirm("Are you sure?");
+            const sure = await confirm.confirmModal("Vacation will be permanently deleted.", "Are you sure?");
             if (!sure) return;
             await dataService.deleteVacation(_id);
             notify.success("Vacation has been deleted");
@@ -85,7 +86,7 @@ export function Vacations() {
     }
 
     async function displayFilter(filter: string) {
-        setPage(1); 
+        setPage(1);
         switch (filter) {
             case "active":
                 await dataService.getActiveVacations();

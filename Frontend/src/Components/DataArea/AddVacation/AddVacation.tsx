@@ -24,6 +24,7 @@ export function AddVacation() {
 
             vacation.image = (vacation.image as unknown as FileList)[0];
             await dataService.addVacation(vacation);
+            await dataService.getAllVacations(true);
             notify.success("Vacation has been added");
             navigate("/vacations");
         }
