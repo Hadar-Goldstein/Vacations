@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./FilterMenu.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { calculate } from "../../../Utils/Calculate";
 
 type VacationFilterProp = {
     filter: (filter: string) => void;
@@ -36,7 +37,7 @@ export function FilterMenu(props: VacationFilterProp) {
                     to="#"
                     onClick={() => handleClick(item.filter)}
                     className={`FilterMenuLink${item.isActive ? "-active" : ""}`}>
-                    {item.filter}
+                    {calculate.getLabel(item.filter)}
                 </NavLink>
 
             ))}

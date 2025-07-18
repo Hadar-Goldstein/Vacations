@@ -45,6 +45,21 @@ class Calculate {
         const localDate = new Date(date.getTime() - offset * 60 * 1000);
         return localDate.toISOString().split("T")[0];
     }
+
+    public getLabel(key: string): string {
+    switch (key) {
+        case "liked":
+            return "Liked";
+        case "active":
+            return "Active Now";
+        case "future":
+            return "Future";
+        case "all":
+            return "Display All";
+        default:
+            return key;
+    }
+}
 }
 
 export const calculate = new Calculate();
