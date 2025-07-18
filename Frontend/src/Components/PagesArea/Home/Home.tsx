@@ -1,10 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import background from "../../../Assets/Images/Background-Website.png";
 import { dataService } from "../../../Services/DataService";
 import { notify } from "../../../Utils/Notify";
+import "./Home.css";
 
 export function Home() {
 
@@ -25,7 +24,6 @@ export function Home() {
 
     return (
         <div className="Home">
-            <img src={background} className="homeImage"></img>
             <div className="animate-container">
 
                 <AnimatePresence mode="wait">

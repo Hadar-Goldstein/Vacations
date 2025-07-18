@@ -18,6 +18,13 @@
     white-space: nowrap;
     transition: transform 0.3s ease;
     overflow-y: auto;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 1000;
 }
 
 .MenuLinks {
