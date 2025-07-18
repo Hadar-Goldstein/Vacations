@@ -1,17 +1,47 @@
 import { NavLink } from "react-router-dom";
 import "./FilterMenu.css";
+import { useEffect, useState } from "react";
 
 type VacationFilterProp = {
-    filter: (filter: string)=> void;
-}
-export function FilterMenu(props: VacationFilterProp): JSX.Element {
+    filter: (filter: string) => void;
+};
+
+export function FilterMenu(props: VacationFilterProp) {
+    const filters = [
+        { filter: "liked", isActive: false },
+        { filter: "active", isActive: false },
+        { filter: "future", isActive: false },
+        { filter: "all", isActive: true },
+    ];
+
+    const [state, setState] = useState(filters);
+
+    function handleClick(selectedFilter: string) {
+        const newFilters = filters.map(item => ({
+            filter: item.filter,
+            isActive: item.filter === selectedFilter
+        }));
+
+        setState(newFilters);
+        console.log(state);
+        props.filter(selectedFilter);
+    }
+
 
     return (
         <div className="FilterMenu">
-            <NavLink to="#" onClick={()=>{props.filter("liked")}} className={"FilterMenuLink"}>Liked</NavLink>
-            <NavLink to="#" onClick={()=>{props.filter("active")}} className={"FilterMenuLink"}>Active Now</NavLink>
-            <NavLink to="#" onClick={()=>{props.filter("future")}} className={"FilterMenuLink"}>Future</NavLink>
-            <NavLink to="#" onClick={()=>{props.filter("all")}} className={"FilterMenuLink"}>Display All</NavLink>
+            {state.map(item => (
+                <NavLink
+                    key={item.filter}
+                    to="#"
+                    onClick={() => handleClick(item.filter)}
+                    className={`FilterMenuLink${item.isActive ? "-active" : ""}`}>
+                    {item.filter}
+                </NavLink>
+
+            ))}
+
+
         </div>
     );
 }
