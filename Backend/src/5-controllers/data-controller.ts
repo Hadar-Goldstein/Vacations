@@ -132,8 +132,6 @@ class DataController {
         }
         catch (err: any) { next(err); }
     }
-
-
 }
 
 export const dataController = new DataController();

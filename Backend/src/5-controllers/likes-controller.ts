@@ -12,7 +12,6 @@ class LikesController {
         this.router.get("/likes", this.getLikes);
         this.router.post("/likes", this.addLike);
         this.router.delete("/likes/:_id([0-9a-f]{24})", this.removeLike);
-
     }
 
     private async getLikes(request: Request, response: Response, next: NextFunction) {

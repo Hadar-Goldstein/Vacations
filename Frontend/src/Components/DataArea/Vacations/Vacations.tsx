@@ -48,7 +48,6 @@ export function Vacations() {
         catch (err: any) {
             notify.error(err);
         }
-
     }
 
     async function editVacation(vacation: VacationModel) {
@@ -60,14 +59,12 @@ export function Vacations() {
         catch (err: any) {
             notify.error(err);
         }
-
     }
 
     async function addLike(like: LikeModel) {
         try {
             await likesService.addLike(like);
             await dataService.getVacationByIdAndUpdate(like.vacationId);
-            // notify.success("like has been added");
         }
         catch (err: any) {
             notify.error(err);
@@ -78,7 +75,6 @@ export function Vacations() {
         try {
             await likesService.removeLike(like._id);
             await dataService.getVacationByIdAndUpdate(like.vacationId);
-            // notify.success("like has been removed");
         }
         catch (err: any) {
             notify.error(err);

@@ -91,7 +91,6 @@ export function VacationCard(props: VacationCardProps) {
                     </div>
                 }
 
-
                 {user?.role === 2 && !didUserLikeVacation(props.vacation) && props.vacation.likesCount > 0 &&
                     <div onClick={like} className="like-badge">
                         <HeartStraight size={18} />

@@ -19,7 +19,6 @@ class UserService {
         return false;
     }
 
-
     public async register(user: IUserModel): Promise<string> {
         const error = user.validateSync();
         if (error) throw new ClientError(StatusCode.BadRequest, error.message);
@@ -28,7 +27,6 @@ class UserService {
         if (existingUser) {
             throw new ClientError(StatusCode.BadRequest, `Email "${user.email}" is already registered.`);
         }
-
 
         user.password = await bcrypt.hash(user.password, 10);
         await user.save();

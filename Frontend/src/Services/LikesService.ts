@@ -16,7 +16,6 @@ class LikesService {
     }
 
     public async addLike(Like: LikeModel): Promise<void> {
-
         const response = await axios.post<LikeModel>(appConfig.likesUrl, Like);
         const dbLike = response.data;
 

@@ -40,9 +40,9 @@ class App {
         // Run server: 
         this.server.listen(appConfig.port, () => console.log("Listening on http://localhost:" + appConfig.port));
     }
-
 }
 
 export const app = new App();
 app.start();
+
 

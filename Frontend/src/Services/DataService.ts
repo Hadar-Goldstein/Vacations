@@ -69,17 +69,14 @@ class DataService {
 
 
     public async getRandomImages(): Promise<string[]> {
-
         const response = await axios.get<string[]>(appConfig.randomImagesUrl);
         const randomImages = response.data;
-
         return randomImages;
     }
 
 
 
     public async getImageFile(imageFileName: string): Promise<string> {
-
         const response = await axios.get<string>(appConfig.imagesUrl + imageFileName);
         const imageUrl = response.data;
         return imageUrl;
@@ -87,7 +84,6 @@ class DataService {
 
 
     public async addVacation(vacation: VacationModel): Promise<void> {
-
         const headers = { "Content-Type": "multipart/form-data" };
         const response = await axios.post<VacationModel>(appConfig.vacationsUrl, vacation, { headers });
         const dbVacation = response.data;

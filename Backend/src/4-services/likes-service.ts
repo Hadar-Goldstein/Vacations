@@ -10,7 +10,6 @@ class LikesService {
         return likes;
     }
 
-
     public async getLikesByUserId(_id: string): Promise<ILikeModel[]> {
         console.log(_id);
         const likes = await LikeModel.find({ userId: new Types.ObjectId(_id) }).exec();

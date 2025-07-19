@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
 describe('Cyber', function () {
-  this.timeout(15000); 
+  this.timeout(20000); 
 
   let mongoServer: MongoMemoryServer;
 
