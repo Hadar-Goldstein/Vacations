@@ -1,3 +1,4 @@
+import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,12 +8,11 @@ import { VacationModel } from "../../../Models/VacationModel";
 import { AppState } from "../../../Redux/Store";
 import { dataService } from "../../../Services/DataService";
 import { likesService } from "../../../Services/LikesService";
+import { confirm } from "../../../Utils/Confirm";
 import { notify } from "../../../Utils/Notify";
 import { FilterMenu } from "../FilterMenu/FilterMenu";
 import { VacationCard } from "../VacationCard/VacationCard";
 import "./Vacations.css";
-import { Pagination } from "@mui/material";
-import { confirm } from "../../../Utils/Confirm";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -110,8 +110,7 @@ export function Vacations() {
     const totalPages = Math.ceil(vacations.length / ITEMS_PER_PAGE);
 
     useEffect(() => {
-        const layoutElement = document.querySelector(".Layout");
-        layoutElement?.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [page]);
 
     return (
@@ -137,23 +136,23 @@ export function Vacations() {
                 </div>
             )}
 
-            {vacations.length !== 0 
-            && 
-            <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(_e, val) => setPage(val)}
-                sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: 2,
-                    '& .MuiPaginationItem-root': {
-                        minWidth: 24,
-                        height: 24,
-                        fontSize: '0.75rem',
-                        padding: 0,
-                        margin: '0 4px',
-                        width: '24px !important'
-                    }
-                }}
-            />}
+            {vacations.length !== 0
+                &&
+                <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(_e, val) => setPage(val)}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginBottom: 2,
+                        '& .MuiPaginationItem-root': {
+                            minWidth: 24,
+                            height: 24,
+                            fontSize: '0.75rem',
+                            padding: 0,
+                            margin: '0 4px',
+                            width: '24px !important'
+                        }
+                    }}
+                />}
 
             {vacations.length === 0 && <div className="no-vacations">No vacations to display...</div>}
         </div>

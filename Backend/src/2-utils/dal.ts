@@ -1,5 +1,5 @@
 import { appConfig } from "./app-config";
-import mongoose from "mongoose"; // npm i mongoose
+import mongoose from "mongoose";
 
 // Data Access Layer
 class DAL {

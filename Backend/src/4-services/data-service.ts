@@ -72,9 +72,6 @@ class DataService {
         }
         return randoms;
     }
-
 }
-
-
 
 export const dataService = new DataService();

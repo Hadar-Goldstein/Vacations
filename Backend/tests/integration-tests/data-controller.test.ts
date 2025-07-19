@@ -24,7 +24,6 @@ describe("Testing DataController", () => {
         await mongoose.disconnect();
     });
 
-
     const authorized = () => ({
         get: (url: string) =>
             supertest(app.server).get(url).set("Authorization", `Bearer ${token}`),

@@ -15,20 +15,16 @@ export function Routing() {
         <div className="Routing">
             <Routes>
                 <Route path="/" element={<Navigate to="/home" />} />
-
                 <Route path="/home" element={<Home />} />
 
                 <Route path="/vacations" element={<Vacations />} />
-                
                 <Route path="/add-vacation" element={<AddVacation />} />
                 <Route path="/reports" element={<Reports />} />
 
                 <Route path="/register" element={<Register />} />
-
                 <Route path="/login" element={<Login />} />
 
                 <Route path="/unauthorized" element={<Unauthorized />} />
-
                 <Route path="*" element={<Page404 />} />
             </Routes>
         </div>

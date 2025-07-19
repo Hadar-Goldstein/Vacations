@@ -30,7 +30,8 @@ class TokenHandle {
                     notify.error("Session expired. Please login again.");
                 }, expiryTime);
             }
-        } catch {
+        } 
+        catch {
             userService.logout();
         }
     }

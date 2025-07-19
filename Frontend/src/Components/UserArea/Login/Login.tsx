@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import background from "../../../Assets/Images/Background-Website.png";
 import { CredentialsModel } from "../../../Models/CredentialsModel";
 import { store } from "../../../Redux/Store";
 import { userService } from "../../../Services/UserService";
@@ -22,7 +21,6 @@ export function Login(): JSX.Element {
             notify.error(err);
         }
     }
-
 
     return (
         <div className="Login">

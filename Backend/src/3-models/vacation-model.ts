@@ -1,7 +1,6 @@
 import { Document, Schema, Types, model } from "mongoose";
-import { calculate } from "../2-utils/calculate";
-import { app } from "../app";
 import { appConfig } from "../2-utils/app-config";
+import { calculate } from "../2-utils/calculate";
 import { ILikeModel } from "./like-model";
 
 // 1. Interface representing our model: 

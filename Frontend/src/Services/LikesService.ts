@@ -9,7 +9,6 @@ class LikesService {
     public async getLikesByUserId(_id: string): Promise<LikeModel[]> {
         const response = await axios.get<LikeModel[]>(appConfig.likesUrl + _id);
         const Likes = response.data;
-
         const action = likeSlice.actions.initLikes(Likes);
         store.dispatch(action);
         return Likes;
@@ -18,7 +17,6 @@ class LikesService {
     public async addLike(Like: LikeModel): Promise<void> {
         const response = await axios.post<LikeModel>(appConfig.likesUrl, Like);
         const dbLike = response.data;
-
         const action = likeSlice.actions.addLike(dbLike);
         store.dispatch(action);
     }

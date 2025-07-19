@@ -23,10 +23,8 @@ class DataService {
 
         const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl);
         const vacations = response.data;
-
         const action = vacationSlice.actions.initVacations(vacations);
         store.dispatch(action);
-
         return vacations;
     }
 
@@ -48,13 +46,10 @@ class DataService {
 
 
     public async getVacationByIdAndUpdate(_id: string): Promise<VacationModel> {
-
         const response = await axios.get<VacationModel>(appConfig.vacationsUrl + _id);
         const dbVacation = response.data;
-
         const action = vacationSlice.actions.updateVacation(dbVacation);
         store.dispatch(action);
-
         return dbVacation;
     }
 
@@ -67,14 +62,11 @@ class DataService {
         store.dispatch(action);
     }
 
-
     public async getRandomImages(): Promise<string[]> {
         const response = await axios.get<string[]>(appConfig.randomImagesUrl);
         const randomImages = response.data;
         return randomImages;
     }
-
-
 
     public async getImageFile(imageFileName: string): Promise<string> {
         const response = await axios.get<string>(appConfig.imagesUrl + imageFileName);
@@ -82,13 +74,10 @@ class DataService {
         return imageUrl;
     }
 
-
     public async addVacation(vacation: VacationModel): Promise<void> {
         const headers = { "Content-Type": "multipart/form-data" };
         const response = await axios.post<VacationModel>(appConfig.vacationsUrl, vacation, { headers });
         const dbVacation = response.data;
-
-        // Save in global state
         const action = vacationSlice.actions.AddVacation(dbVacation);
         store.dispatch(action);
     }

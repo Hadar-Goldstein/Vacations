@@ -51,8 +51,6 @@ class UserController {
         }
         catch (err: any) { next(err); }
     }
-
-
 }
 
 export const userController = new UserController();

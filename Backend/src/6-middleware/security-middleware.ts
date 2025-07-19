@@ -17,7 +17,6 @@ class SecurityMiddleware {
         next();
     }
 
-    // Is user Admin
     public validateAdmin(request: Request, response: Response, next: NextFunction) :void {
         const header = request.headers.authorization;
         const token = header?.substring(7);
@@ -30,7 +29,6 @@ class SecurityMiddleware {
 
         next();
     }
-
 }
 
 export const securityMiddleware = new SecurityMiddleware();

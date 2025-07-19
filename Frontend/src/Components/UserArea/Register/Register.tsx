@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserModel } from "../../../Models/UserModel";
 import { userService } from "../../../Services/UserService";
 import { notify } from "../../../Utils/Notify";
-import background from "../../../Assets/Images/Background-Website.png"
 import "./Register.css";
 
 export function Register(): JSX.Element {

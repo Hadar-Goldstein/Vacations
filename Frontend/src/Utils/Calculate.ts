@@ -1,6 +1,5 @@
 import { LikeObjModel } from "../Models/LikeObjModel";
 
-
 class Calculate {
 
     public async getLikesCount(_id: string, likes: LikeObjModel[]): Promise<number> {
@@ -47,19 +46,19 @@ class Calculate {
     }
 
     public getLabel(key: string): string {
-    switch (key) {
-        case "liked":
-            return "Liked";
-        case "active":
-            return "Active Now";
-        case "future":
-            return "Future";
-        case "all":
-            return "Display All";
-        default:
-            return key;
+        switch (key) {
+            case "liked":
+                return "Liked";
+            case "active":
+                return "Active Now";
+            case "future":
+                return "Future";
+            case "all":
+                return "Display All";
+            default:
+                return key;
+        }
     }
-}
 }
 
 export const calculate = new Calculate();

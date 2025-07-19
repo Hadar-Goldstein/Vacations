@@ -40,8 +40,6 @@ export function FilterMenu(props: VacationFilterProp) {
                 </NavLink>
 
             ))}
-
-
         </div>
     );
 }
