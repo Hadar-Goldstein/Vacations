@@ -144,6 +144,8 @@ export function Vacations() {
                 </div>
             )}
 
+            {vacations.length !== 0 
+            && 
             <Pagination count={totalPages} page={page} shape="rounded" variant="outlined" size="small" onChange={(_e, val) => setPage(val)}
                 sx={{
                     display: "flex",
@@ -158,7 +160,9 @@ export function Vacations() {
                         width: '24px !important'
                     }
                 }}
-            />
+            />}
+
+            {vacations.length === 0 && <div className="no-vacations">No vacations to display...</div>}
         </div>
     );
 }
