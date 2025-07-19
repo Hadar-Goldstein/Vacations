@@ -114,9 +114,6 @@ export function Vacations() {
         layoutElement?.scrollTo({ top: 0, behavior: "smooth" });
     }, [page]);
 
-
-
-
     return (
         <div className="Vacations">
             {user?.role === 1 && <div className="vacations-list-admin">{currentVacations.map(v => (

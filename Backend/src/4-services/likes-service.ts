@@ -11,9 +11,7 @@ class LikesService {
     }
 
     public async getLikesByUserId(_id: string): Promise<ILikeModel[]> {
-        console.log(_id);
         const likes = await LikeModel.find({ userId: new Types.ObjectId(_id) }).exec();
-        console.log(likes);
         if (!likes) throw new ClientError(StatusCode.NotFound, `User ${_id} does not exist.`);
         return likes;
     }

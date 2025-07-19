@@ -24,7 +24,6 @@ export function FilterMenu(props: VacationFilterProp) {
         }));
 
         setState(newFilters);
-        console.log(state);
         props.filter(selectedFilter);
     }
 
