@@ -1,0 +1,225 @@
+[{
+  "_id": {
+    "$oid": "683af0929208b12ea5a333c9"
+  },
+  "destination": "New York City, Usa",
+  "description": "Spend 4 electrifying nights in the Big Apple and discover why NYC is called the city that never sleeps. From Times Square to Central Park, every corner offers something iconic. Enjoy Broadway shows, world-class shopping, rooftop bars, and famous museums. Perfect for urban explorers and culture addicts alike.",
+  "startDate": {
+    "$date": "2025-09-15T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-09-19T00:00:00.000Z"
+  },
+  "price": 1950,
+  "imageFileName": "21d5b377-15f2-4ff0-9215-77065d423986.jpg"
+},
+{
+  "_id": {
+    "$oid": "683af11a81c59c645ed8487a"
+  },
+  "destination": "Costa Rica",
+  "description": "Unleash your adventurous spirit in Costa Rica’s lush tropical rainforests. This 7-day trip is packed with thrilling activities: zip-lining through jungle canopies, hiking to hidden waterfalls, and spotting wildlife in national parks. Recharge in eco-lodges surrounded by nature, with optional hot spring visits and local cultural experiences. A paradise for nature lovers and adrenaline seekers.",
+  "startDate": {
+    "$date": "2025-10-04T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-10-09T21:00:00.000Z"
+  },
+  "price": 1600,
+  "imageFileName": "8187a417-68fb-4d5f-8291-64471a3cd95e.webp"
+},
+{
+  "_id": {
+    "$oid": "683af16f81c59c645ed8487c"
+  },
+  "destination": "Rome, Italy",
+  "description": "Walk in the footsteps of emperors in the Eternal City of Rome. This 4-night trip brings you face-to-face with iconic landmarks like the Colosseum, the Vatican, and the Pantheon. Enjoy espresso in local cafés and dine al fresco with views of ancient ruins. A timeless journey through history, art, and food.",
+  "startDate": {
+    "$date": "2025-11-05T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-11-10T00:00:00.000Z"
+  },
+  "price": 1220,
+  "imageFileName": "4bcee92b-3714-4fda-8fc8-93b3920ed83a.avif"
+},
+{
+  "_id": {
+    "$oid": "683af1c681c59c645ed8487e"
+  },
+  "destination": "Paris, France",
+  "description": "Fall in love all over again in the enchanting city of Paris. This 4-night romantic getaway includes a scenic cruise on the Seine River, fine dining at charming bistros, and plenty of time to explore the Eiffel Tower, Montmartre, and the Louvre. Cozy boutique hotels and cobblestone streets await. Ideal for couples seeking an unforgettable escape filled with elegance and culture.",
+  "startDate": {
+    "$date": "2025-12-22T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-12-27T00:00:00.000Z"
+  },
+  "price": 1300,
+  "imageFileName": "9ce3796d-054b-44a5-b18f-bdf721254c1f.jpg"
+},
+{
+  "_id": {
+    "$oid": "683af24781c59c645ed84881"
+  },
+  "destination": "Malta",
+  "description": "Escape to the sunny Mediterranean island of Malta for 5 days of pure relaxation. Lounge on golden beaches, explore ancient cities like Mdina, and enjoy warm summer nights with delicious seafood and cocktails. This island blends history and modern charm perfectly. A perfect choice for travelers who want both sun and substance.",
+  "startDate": {
+    "$date": "2026-01-01T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-01-06T00:00:00.000Z"
+  },
+  "price": 900,
+  "imageFileName": "abaab6bd-b45a-4ade-858d-0121d0ca68b5.webp"
+},
+{
+  "_id": {
+    "$oid": "683af2a781c59c645ed84883"
+  },
+  "destination": "Tokyo, Japan",
+  "description": "Dive into a 6-night cultural adventure in Tokyo, a city where tradition and technology collide. Visit ancient temples, explore futuristic neighborhoods like Akihabara, and feast on sushi at hidden local gems. Participate in a traditional tea ceremony and enjoy the serenity of Japanese gardens. A trip for curious minds and modern explorers.",
+  "startDate": {
+    "$date": "2026-02-04T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-02-10T00:00:00.000Z"
+  },
+  "price": 1900,
+  "imageFileName": "07e1f474-e5d1-4f00-829d-cef696f8f69e.webp"
+},
+{
+  "_id": {
+    "$oid": "683af30c81c59c645ed84885"
+  },
+  "destination": "Barcelona, Spain",
+  "description": "Feel the rhythm of Barcelona during this colorful 5-day experience. Stroll down Las Ramblas, admire Gaudí’s architectural wonders like the Sagrada Familia, and enjoy nightly tapas under the stars. Visit bustling markets and sunbathe on the city’s vibrant beaches. This trip is a sensory feast you’ll never forget.",
+  "startDate": {
+    "$date": "2026-02-10T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-02-15T00:00:00.000Z"
+  },
+  "price": 1110,
+  "imageFileName": "f1397b18-7152-4602-a1dd-abbed4acb778.avif"
+},
+{
+  "_id": {
+    "$oid": "683af3cf81c59c645ed84887"
+  },
+  "destination": "Bangkok, Thailand",
+  "description": "Discover Bangkok’s vibrant chaos over 5 energetic days. Visit glittering temples, cruise the Chao Phraya River, and get lost in night markets full of colors and flavors. Try authentic street food and dive into the city’s famous nightlife. This exotic urban adventure is full of surprises.",
+  "startDate": {
+    "$date": "2026-03-30T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-04-05T00:00:00.000Z"
+  },
+  "price": 980,
+  "imageFileName": "fa6f488e-622e-42b1-bb94-3258614d537c.avif"
+},
+{
+  "_id": {
+    "$oid": "683af42a81c59c645ed84889"
+  },
+  "destination": "Lisbon, Portugal",
+  "description": "Spend 4 sunny days exploring Lisbon’s hills, trams, and soulful charm. Enjoy fresh pastries in quiet alleyways, admire colorful tiles, and soak in views from historic miradouros. The Atlantic breeze, live Fado music, and laid-back pace make Lisbon a unique European gem. Great for travelers who love hidden beauty.",
+  "startDate": {
+    "$date": "2026-05-05T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-05-09T00:00:00.000Z"
+  },
+  "price": 920,
+  "imageFileName": "eb91c399-27c0-47b2-95df-979944d08ccf.webp"
+},
+{
+  "_id": {
+    "$oid": "683af47a81c59c645ed8488b"
+  },
+  "destination": "Zanzibar, Tanzania",
+  "description": "Relax in a tropical paradise where turquoise waters meet white sand. Zanzibar’s 6-day beach escape includes visits to spice farms, snorkeling adventures, and lazy afternoons by the Indian Ocean. The culture here is as rich as the scenery. A dreamy destination for honeymooners or anyone seeking serenity.",
+  "startDate": {
+    "$date": "2026-06-02T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-06-08T00:00:00.000Z"
+  },
+  "price": 1450,
+  "imageFileName": "52d79a31-3717-4650-9b62-323c1be0c6b3.jpg"
+},
+{
+  "_id": {
+    "$oid": "683af4da81c59c645ed8488d"
+  },
+  "destination": "Bali, Indonesia",
+  "description": "Reconnect with your inner peace on a 7-night wellness retreat in serene Bali. Wake up to sunrise yoga, wander through emerald rice terraces, and unwind with holistic spa treatments. Discover local Balinese culture in Ubud and enjoy evenings in tranquil beachside resorts. Ideal for rest, reflection, and inspiration.",
+  "startDate": {
+    "$date": "2026-07-10T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-07-18T00:00:00.000Z"
+  },
+  "price": 1380,
+  "imageFileName": "dd7adea2-cc1e-4b94-841b-45681b411fb9.webp"
+},
+{
+  "_id": {
+    "$oid": "683af52081c59c645ed8488f"
+  },
+  "destination": "Reykjavik, Iceland",
+  "description": "Explore Iceland’s dramatic landscapes in a 5-day journey that’s nothing short of magical. See glaciers, lava fields, geysers, and waterfalls—all in one trip. Relax in geothermal hot springs and keep your eyes out for the Northern Lights. Nature in its rawest, most beautiful form awaits.",
+  "startDate": {
+    "$date": "2026-07-20T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-07-25T00:00:00.000Z"
+  },
+  "price": 1650,
+  "imageFileName": "4ee76e0d-412b-4baf-afdf-4afe6151aba5.avif"
+},
+{
+  "_id": {
+    "$oid": "685bcacd38544235e3f098c4"
+  },
+  "destination": "Amalfi Coast, Italy",
+  "description": "Cling to the cliffs of southern Italy where pastel villages cascade toward the sea. Spend 5 dreamy days in Positano, with lemon-scented breezes, scenic boat rides, and dinners overlooking sapphire waters. The Amalfi Coast blends rustic charm with Mediterranean elegance for a vacation you’ll never forget.",
+  "startDate": {
+    "$date": "2025-08-10T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-08-20T00:00:00.000Z"
+  },
+  "price": 1300,
+  "imageFileName": "86206609-6f46-4220-a2a4-98265f0e64ce.jpg"
+},
+{
+  "_id": {
+    "$oid": "687b6996147d4e3c0400013f"
+  },
+  "destination": "Cortina D'ampezzo, Italy",
+  "description": "Nestled in the heart of the Italian Alps, Cortina d'Ampezzo is a charming mountain resort renowned for its breathtaking landscapes, world-class skiing, and stylish atmosphere. Whether you're hitting the slopes in winter or exploring scenic hiking trails in summer, Cortina offers the perfect blend of natural beauty, outdoor adventure, and Italian elegance.",
+  "startDate": {
+    "$date": "2025-07-12T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-07-30T00:00:00.000Z"
+  },
+  "price": 2100,
+  "imageFileName": "b76cdc78-1184-4c2a-acbd-e00193bb6992.jpg"
+},
+{
+  "_id": {
+    "$oid": "687b6afb147d4e3c04000154"
+  },
+  "destination": "Lugano, Switzerland",
+  "description": "Located in southern Switzerland, Lugano blends Swiss sophistication with Mediterranean charm. Overlooking the serene Lake Lugano and surrounded by lush mountains, the city offers stunning views, elegant boutiques, lakeside promenades, and delicious cuisine. Whether you're seeking relaxation, culture, or outdoor fun, Lugano is a captivating destination year-round.",
+  "startDate": {
+    "$date": "2025-07-16T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-08-06T00:00:00.000Z"
+  },
+  "price": 1965,
+  "imageFileName": "9cc438b2-113b-48e7-916a-5f485d27b536.webp"
+}]

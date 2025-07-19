@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "683aefd65d2bb8cf15c54adf"
+  },
+  "firstName": "Lior",
+  "lastName": "Birman",
+  "email": "birmanlior@gmail.com",
+  "password": "$2b$10$hUV2h8nqcCtMkvy9n7s09uMNGmxClnAOR6mZiSo87OjdPovPxTt12",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "683aefe85d2bb8cf15c54ae1"
+  },
+  "firstName": "Hadar",
+  "lastName": "Goldstein",
+  "email": "hadargol71@gmail.com",
+  "password": "$2b$10$cxViF8FhEvXRSPZWZxOaUu5snqPkpFf/I20HP3wmECLzsHPCxVbh2",
+  "role": 1
+},
+{
+  "_id": {
+    "$oid": "6843050c80035ba2b298ef17"
+  },
+  "firstName": "Shira",
+  "lastName": "Goldstein",
+  "email": "shiragold12@gmail.com",
+  "password": "$2b$10$hRv.bCgB66tYKOHlbEdTX.6IcIm4pLY9E3LVOsjkXxmJZV/QsFWD.",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "68481defbd626238bdddcf17"
+  },
+  "firstName": "Noa",
+  "lastName": "Goldstein",
+  "email": "noagold12@gmail.com",
+  "password": "$2b$10$Gl9ulD7HoFe3ZcmM8jVO0O2K.SG2pnevchxf40DHQzoMDsgSU4Mja",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "68481e91bd626238bdddcf1e"
+  },
+  "firstName": "Yael",
+  "lastName": "Goldstein",
+  "email": "yael@gmail.com",
+  "password": "$2b$10$pheNItjUbo15iiiv5iXBj.rPw.sMMZOj10sURT6Y78rik2Gv5Aj/O",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "68497c8da8332f2c9de8ce30"
+  },
+  "firstName": "Ofir",
+  "lastName": "Mor",
+  "email": "ofrimor@gmail.com",
+  "password": "$2b$10$IMhY3KCdpB4XUCnGv6aR4evuj2tnYs45WGbAYeD/KoeA/wjsHVbGG",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "687ba3d631c2d7cdfb20dd95"
+  },
+  "firstName": "Moti",
+  "lastName": "Goldstein",
+  "email": "motigold12@gmail.com",
+  "password": "$2b$10$XSeJ.SQYli9RQN/97qk.4Odi16mbORREHrgmwZNggI1CSIMZj2aZa",
+  "role": 2
+},
+{
+  "_id": {
+    "$oid": "687bfcaa9829db2041bd29c3"
+  },
+  "firstName": "Noam",
+  "lastName": "Bereby",
+  "email": "noam.bereby@gmail.com",
+  "password": "$2b$10$1pglOFxhGxNirdzhyZSEP.xCdw38VNjd3rdaBrjxnCXqxP74R/hh.",
+  "role": 2
+}]
