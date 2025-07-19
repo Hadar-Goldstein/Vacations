@@ -15,11 +15,11 @@ export function Menu() {
     return (
         <div className="Menu">
 
-            <div className="MenuLinks">
-                <NavLink to="/home" className={"MenuLink"}>Home</NavLink>
-                <NavLink to="/vacations" className={"MenuLink"}>Vacations</NavLink>
-                {user?.role === 1 && <NavLink to="/add-vacation" className={"MenuLink"}>Add Vacation</NavLink>}
-                {user?.role === 1 && <NavLink to="/reports" className={"MenuLink"}>Reports</NavLink>}
+            <div className="menu-links">
+                <NavLink to="/home" className={"menu-link"}>Home</NavLink>
+                <NavLink to="/vacations" className={"menu-link"}>Vacations</NavLink>
+                {user?.role === 1 && <NavLink to="/add-vacation" className={"menu-link"}>Add Vacation</NavLink>}
+                {user?.role === 1 && <NavLink to="/reports" className={"menu-link"}>Reports</NavLink>}
             </div>
 
             <div className="right-section">

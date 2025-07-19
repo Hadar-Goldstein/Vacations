@@ -59,8 +59,6 @@ export function VacationCard(props: VacationCardProps) {
         props.deleteCard(props.vacation._id);
     }
 
-    // const tomorrow = calculate.getTomorrowDate();
-
     function getLikeId(vacationId: string): string | undefined {
         const like = userLikes.find(l => l.vacationId === vacationId);
         return like?._id;
@@ -83,7 +81,7 @@ export function VacationCard(props: VacationCardProps) {
 
     return (
         <div className="Card">
-            <div className="ImageContainer">
+            <div className="image-container">
                 <img src={props.vacation.imageUrl} crossOrigin="anonymous"></img>
 
                 {user?.role === 2 && didUserLikeVacation(props.vacation) &&

@@ -26,8 +26,6 @@ export function Login(): JSX.Element {
 
     return (
         <div className="Login">
-            <img src={background} className="loginImage"></img>
-
             <div className="login-container">
                 <p className="title-container">W E L C O M E !</p>
                 <p className="subtitle-container">Don't have an account yet? <NavLink to={"/register"} className="link">Sign Up</NavLink></p>
