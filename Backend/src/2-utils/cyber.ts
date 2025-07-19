@@ -3,33 +3,31 @@ import { RoleModel } from "../3-models/role-model";
 import { IUserModel } from "../3-models/user-model";
 
 class Cyber {
-    public getNewToken(user: IUserModel) : string {
+    public getNewToken(user: IUserModel): string {
+        const userObject = user.toObject();
+        delete userObject.password;
 
-        delete user.password;
+        const payload = { user: userObject };
+        const options: SignOptions = { expiresIn: "3h" };
 
-        const payload = { user };
-        const options: SignOptions = {expiresIn: "3h"};
-
-        // Token
-        const token = jwt.sign(payload, "v!c@a#t$i%o^n&s!@#$%^&*()", options);
-
-        return token;
+        return jwt.sign(payload, "v!c@a#t$i%o^n&s!@#$%^&*()", options);
     }
 
-    public validateToken(token: string) :boolean {
-        try{
-            if(!token) return false;
+
+    public validateToken(token: string): boolean {
+        try {
+            if (!token) return false;
             jwt.verify(token, "v!c@a#t$i%o^n&s!@#$%^&*()");
             return true;
         }
-        catch(err) {
+        catch (err) {
             return false;
         }
     }
 
     // Validate Admin
-    public validateAdmin(token: string) : boolean {
-        const payload = jwt.decode(token) as {user: IUserModel};
+    public validateAdmin(token: string): boolean {
+        const payload = jwt.decode(token) as { user: IUserModel };
         const user = payload.user;
         return user.role === RoleModel.Admin;
     }
