@@ -25,7 +25,7 @@ export function Routing() {
                 <Route path="/login" element={<Login />} />
 
                 <Route path="/unauthorized" element={<Unauthorized />} />
-                <Route path="*" element={<Page404 />} />
+                <Route path="*" element={<Navigate to="/unauthorized" />} />
             </Routes>
         </div>
     );
