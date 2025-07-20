@@ -7,10 +7,14 @@ import { notify } from "../../../Utils/Notify";
 import { dataService } from "../../../Services/DataService";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
 import { CSVLink } from "react-csv";
+import { UserModel } from "../../../Models/UserModel";
+import { useNavigate } from "react-router-dom";
 
 export function Reports(): JSX.Element {
 
     const vacations = useSelector<AppState, VacationModel[]>(store => store.vacations);
+    const user = useSelector<AppState, UserModel>(store => store.user);
+    const navigate = useNavigate();
 
     async function fetchData() {
         try {
@@ -22,8 +26,9 @@ export function Reports(): JSX.Element {
     }
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        if (!user) navigate("/unauthorized");
+        else fetchData();
+    }, [user]);
 
     const splitText = (text: string): string => {
         return text.split(" ").join("\n");
@@ -31,7 +36,7 @@ export function Reports(): JSX.Element {
 
 
     const data = vacations.map(v => ({ x: splitText(v.destination), y: v.likesCount }));
-    const chartWidth = Math.max(800, vacations.length * 80); 
+    const chartWidth = Math.max(800, vacations.length * 80);
 
     const headers = [
         { label: "Destination", key: "destination" },

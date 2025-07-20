@@ -5,8 +5,18 @@ import { dataService } from "../../../Services/DataService";
 import { calculate } from "../../../Utils/Calculate";
 import { notify } from "../../../Utils/Notify";
 import "./AddVacation.css";
+import { useSelector } from "react-redux";
+import { AppState } from "../../../Redux/Store";
+import { UserModel } from "../../../Models/UserModel";
+import { useEffect } from "react";
 
 export function AddVacation() {
+    const user = useSelector<AppState, UserModel>(store => store.user);
+    
+    useEffect(() => {
+        if (user) return;
+        else navigate("/unauthorized");
+    }, [user]);
 
     const { register, handleSubmit } = useForm<VacationModel>();
 
